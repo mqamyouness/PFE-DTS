@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutFrontend.cshtml";
+}
+
+
+<section class="hero-wrap js-fullheight">
+    <div class="overlay" style="background-image: url(../Content/images/bg_2.jpg);" data-stellar-background-ratio="0.5"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end">
+            <div class="col-md-12 text-center ftco-animate">
+                <h1 class="mb-3 bread" style="background-image: url(../Content/images/bg_1.jpg);" data-stellar-background-ratio="0.5">Get Started</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a class="btn " data-toggle="modal" data-target="#exampleModalCenter">Login</a></span>| <span><a class="btn " data-toggle="modal" data-target="#exampleModalCenter2">Sign up</a></span></p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="i10 modal-title" style="color:black;">Welcome Back !</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <p class="i10" style="color:black;">Log in to your account to continue:</p>
+                    <label for="exampleInputEmail1" style="color:black;">Email address:</label>
+                    <div class="form-group">
+                        <input type="email" class=" form-control" placeholder="Your Email" />
+                        <small id="emailHelp" class="form-text text-muted" style="color:black;">We'll never share your email with anyone else.</small>
+                    </div>
+
+
+                    <label for="exampleInputPassword1" style="color:black;">Password:</label>
+                    <input type="password" class="form-control i10" id="exampleInputPassword1" placeholder="Password">
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="exampleCheck1" style="color:black;">Save My Password</label>
+                    </div>
+                    <br>
+                    <p style="color:black;">Not registered? <a style="cursor: pointer;" data-dismiss="modal" data-toggle="modal" data-target="#exampleModalCenter2">Create an account</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="i10 modal-title">
+                    Create A New Account
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputtext" class="i10">First Name:</label>
+                        <input type="text" class=" i10 form-control" required placeholder="Your First Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputtext" class="i10">Last Name:</label>
+                        <input type="text" class=" i10 form-control" required placeholder="Your Last Name" />
+                    </div>
+                    <label for="exampleInputEmail1" class="i10">Email address:</label>
+                    <div class="form-group">
+                        <input type="text" class=" i10 form-control" placeholder="Your Email" />
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="i10">Phone Number:</label>
+                        <input type="tel" class="form-control i10" id="example-tel-input" required placeholder="(+212) (0 000 0000)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="i10">Password:</label>
+                        <input type="password" class="form-control i10" id="exampleInputPassword1" required placeholder="Enter Your Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="i10">Confirm Password:</label>
+                        <input type="password" class="form-control i10" id="exampleInputPassword1" required placeholder="Enter Your Password">
+                    </div>
+                    <br>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class=" i10 form-check-label" for="exampleCheck1">By signing up, you agree with the terms and conditions .</label>
+                    </div>
+                    <br>
+                    <p class=" i10 ">You Already Have An Account? <a style="cursor: pointer;" data-dismiss="modal" data-toggle="modal" data-target="#exampleModalCenter">Login</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="i10 modal-title">
+                    Complete Your Account
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>

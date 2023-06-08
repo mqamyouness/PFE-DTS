@@ -1,0 +1,53 @@
+﻿<section class="ftco-section testimony-section" style="background-image: url(/Content/images/bg_4.jpg);" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">
+                    <i class="db-left"></i>
+                    Testimonial
+                    <i class="db-right"></i>
+                </span>
+                <h2 class="mb-3">What People Say</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 ftco-animate">
+                <div class="row ftco-animate">
+                    <div class="col-md-12">
+                        <div class="carousel-testimony owl-carousel ftco-owl">
+                            @{
+                                var PeopleSay = (List<MyCoaches.Models.WhatPeopleSay>)ViewData["PeopleSay"];
+                                foreach (var item in PeopleSay)
+                                {
+                                    <div class="item">
+                                        <div class="testimony-wrap py-4 pb-5">
+                                            <div class="user-img mb-4" style="background-image: url(/Content/images/@(item.Personne.Photoprofile))">
+                                                <span class="quote d-flex align-items-center justify-content-center">
+                                                    <i class="icon-quote-left"></i>
+                                                </span>
+                                            </div>
+                                            <div class="text text-center">
+                                                <p class="mb-4">@(item.TextSay)</p>
+                                                <p class="name">@(item.Personne.Nom) &nbsp; @(item.Personne.Prenom)</p>
+                                                <span class="position">
+                                                    @{
+                                                        if (item.Personne.Entraineurs.Where(e => e.C_idPersonne == item.C_idPesonne).Count() > 0)
+                                                        { @("Coache")}
+                                                    else
+                                                    {@("client")}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

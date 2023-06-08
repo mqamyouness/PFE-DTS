@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewBag.Title = "Coache";
+    Layout = "~/Views/_LayoutFrontend.cshtml";
+    var coache = (List<MyCoaches.Models.Entraineur>)ViewData["coache"];
+    
+}
+<section class="hero-wrap js-fullheight">
+    <div class="overlay" style="background-image: url(/Content/images/bg_2.jpg);" data-stellar-background-ratio="0.5"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end" style="margin-top: 10%;">
+            <div class="col-md-10 text-center ftco-animate">
+                <div class="coach d-sm-flex ">
+                    <div class="pricing-wrap img" style="background-image: url(/Content/images/@coache.First().Personne.Photoprofile);"></div>
+                    <div class="text py-4 px-5 ftco-animate">
+                        <h3><a>@coache.First().Personne.Nom &nbsp; @coache.First().Personne.Prenom</a></h3>
+                        <p>@coache.First().Personne.Sexe</p>
+                        <p>@coache.First().Personne.DateNc.Value.ToLongDateString()</p>
+                        <p>@coache.First().Personne.Email</p>
+                        <p>@coache.First().Personne.Telephone</p>
+                        <p>@coache.First().Experience Years</p>
+                        <ul class="ftco-social-media d-flex mt-4">
+                            @{
+                                var linkRs = (List<MyCoaches.Models.reseauxSociaux>)ViewData["linkSc"];
+                                foreach (var item in linkRs)
+                                {
+                                    <li class="ftco-animate"><a href="@item.Lnik" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-@item.nameRs"></span></a></li>
+                                }
+                            }
+                        </ul>
+                        <a class="btn btn-outline-danger" style="color:white">Chats</a>
+                        @{
+                            if (ViewBag.button == true)
+                            {
+                                <a class="btn btn-outline-danger" style="color:white">Add new Post</a>
+                                <a class="btn btn-outline-danger" style="color:white">List Post</a>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex">
+                @{
+                    var posts = (List<MyCoaches.Models.Post>)ViewData["Posts"];
+                    int i = 0;
+                    foreach (var item in posts)
+                    {
+                        string displayValue = "block";
+                        i++;
+                        if (i > 3)
+                        {
+                            displayValue = "none";
+                        }
+
+                        <div class="col-lg-4 ftco-animate count_item" style="display:@displayValue">
+                            <div class="blog-entry align-self-stretch">
+                                <a href="~/Posts/DetailsPost/@item.id" class="block-20" style="background-image: url('/Content/images/@item.LinkPosts.First().Link');">
+                                </a>
+                                <div class="text py-4 d-flex">
+                                    <div class="meta text-center">
+                                        <span class="day">@item.DatePost.Value.Day</span>
+                                        <span class="mos">@{ System.Globalization.CultureInfo info = new System.Globalization.CultureInfo("en-US"); var m = info.DateTimeFormat.GetMonthName(item.DatePost.Value.Month); }@(m)</span>
+                                        <span class="yr">@item.DatePost.Value.Year</span>
+                                    </div>
+                                    <div class="desc">
+                                        <h3 class="heading mt-2"><a href="~/Posts/DetailsPost/Post=@item.id">@item.Titer</a></h3>
+                                        <p>@item.Subjects</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            @{
+                i = 0;
+                var sports = (List<MyCoaches.Models.Choix>)ViewData["sports"];
+                foreach (var item in sports)
+                {
+                    string displayValue = "block";
+                    i++;
+                    if (i > 3)
+                    {
+                        displayValue = "none";
+                    }
+                    <div class="col-md-4 count_item_Choix" style="display:@(displayValue)">
+                        <div class="pricing-wrap img" style="background-image: url(/Content/images/@item.img);">
+                            <div class="title p-4">
+                                <h3>@item.Entraineur.Personne.Nom &nbsp; @item.Entraineur.Personne.Prenom</h3>
+                                <span>@(item.Sport.Libelle)</span>
+                            </div>
+                            <div class="text p-4 d-flex align-items-end">
+                                <a href="~/Sports/Join/@(item.id)" class="btn-custom px-4 py-2">Join Now</a>
+                                <div>
+                                    <span class="price">$@item.AbonnemetPrix</span>
+                                    <h3><a href="#">@item.Entraineur.Personne.Nom &nbsp; @item.Entraineur.Personne.Prenom</a></h3>
+                                    <p>@item.textPub</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="row">
+            <div class="col-md-8 ftco-animate">
+                <h2 class="mb-3 font-weight-bold">Informations for coach with certification </h2>
+                @{
+                    var certf = (List<MyCoaches.Models.LinkCertification>)ViewData["LinkCrtf"];
+                    i =1;
+                    foreach (var item in certf)
+                    {
+                        <h2 class="mb-3 mt-5">#@(i). Certification</h2>
+                        <p>
+                            @item.TextCRF
+                        </p>
+                        <p>
+                            <img src="~/Content/images/@item.Link" alt="image Certification" class="img-fluid">
+                        </p>
+                        i++;
+                    }
+                }
+            </div>
+            <div class="col-md-4 sidebar ftco-animate">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <div class="icon">
+                                <span class="icon-search"></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <h3 class="heading2">Recent Blog</h3>
+                    @{
+                        var minPost = (List<MyCoaches.Models.Post>)ViewData["minPost"];
+                        foreach (var item in minPost)
+                        {
+                            <h3 class="heading2">@(item.Choix.Sport.Libelle)</h3>
+                            <div class="block-21 mb-4 d-flex">
+                                <a class="blog-img mr-4" href="~/Posts/DetailsPost/@(item.id)" style="background-image: url(/Content/images/@(item.LinkPosts.First().Link))"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="~/Posts/DetailsPost/@(item.id)">@(item.Titer)</a></h3>
+                                    <div class="meta">
+                                        <div>
+                                            <span class="icon-calendar"></span>
+                                            @{ System.Globalization.CultureInfo info = new System.Globalization.CultureInfo("en-US"); var m = info.DateTimeFormat.GetMonthName(item.DatePost.Value.Month); }@(m)
+                                            &nbsp;@(item.DatePost.Value.Day)&nbsp;,&nbsp @(item.DatePost.Value.Year)
+                                        </div>
+                                        <div><a href="~/Posts/DetailsPost/@(item.id)"><span class="icon-chat"></span> @(item.Commentaires.Count())</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <div class="categories">
+                        <h3 class="heading2">Categories</h3>
+                        <ul class="navbar-nav ml-auto">
+                            <li><a href="#">Sports <span>(3)</span></a></li>
+                            <li><a href="#">Posts <span>(3)</span></a></li>
+                            <li><a href="#">Comment <span>(32)</span></a></li>
+                            <li><a href="#">Evaluation <span>(6)</span></a></li>
+                            <li><a href="#">Client <span>(3)</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MyCoaches.Models.Abonnement>
+
+@{
+    ViewBag.Title = "Abonnement";
+    Layout = "~/Views/_Layout.cshtml";
+}
+@{Html.RenderPartial("../PartielsBackend/Filter");}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDub)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateFin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peroide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.autoReview)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Utilisateur.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Choix.Category)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateDub)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateFin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Peroide)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.autoReview)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utilisateur.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Choix.Category)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

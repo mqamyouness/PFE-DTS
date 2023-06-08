@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "updateProfileUser";
+    Layout = "~/Views/_LayoutFrontend.cshtml";
+    var personne = (List<MyCoaches.Models.Personne>)ViewData["personne"];
+    string nom = personne[0].Nom;
+    string pernom = personne[0].Prenom;
+    string photo = personne[0].Photoprofile;
+    string username = personne[0].Username;
+    string email = personne[0].Email;
+    string dateNc = personne[0].DateNc.Value.ToShortDateString();
+    string CVC = "";// personne[0].Cartes.First().CVC;
+    string numero = "";//personne[0].Cartes.First().NumeroCarte;
+    string datefin = "";//personne[0].Cartes.First().DateFin.Value.ToShortDateString();
+    string phone = personne[0].Telephone;
+    string men = "", women = "";
+    if (personne[0].Sexe == "men")
+    {
+        men = "selected";
+    }
+    else
+    {
+        women = "selected";
+    }
+
+}
+<section class="hero-wrap js-fullheight" style="margin-top:1%">
+    <div class="overlay" style="background-image: url(/Content/images/bg_2.jpg);" data-stellar-background-ratio="0.5"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end">
+            <div class="col-md-12 text-center ftco-animate" style="background-color: #ffffff52;padding: 8%;margin-top: 5%;">
+                <form id="form_info" method="post" action="confirmedInfo">
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <div class="card" style="width: 12rem;height: 16rem;">
+                                <img class="card-img-top" src="/Content/images/@(photo)" alt="Card image cap" id="profile" style="cursor: pointer;width: 11.9rem;height: 14rem;">
+                                <label for="img" id="labelimg" style="color: #000;cursor: pointer;">Change it</label>
+                                <input type="file" name="img" style="display: none;" id="img" accept="image/x-png,image/gif,image/jpeg" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="@(nom)" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="lastname">Last name</label>
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="last name" value="@(pernom)" >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" value="@(username)" >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" value="@(email)" >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">Phone</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" value="@(phone)" >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dateNc">Date Nc</label>
+                            <input type="date" class="form-control" name="dateNc" id="dateNc"  value="@(dateNc)">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="sexe">Sexe</label>
+                            <select id="sexe" name="sexe" class="form-control">
+                                <option value="men" @(men) >Men</option>
+                                <option value="women"@(women) >Women</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="numerocarte">Numero carte bancaire</label>
+                            <input type="text" class="form-control" name="numerocarte" id="numerocarte" value="@(numero)">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="datefincarte">Date Fin</label>
+                            <input type="month" class="form-control" name="datefincarte" id="datefincarte" value="@(datefin)">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="cvc">CVC</label>
+                            <input type="text" class="form-control" id="cvc" name="cvc" value="@(CVC)" maxlength="3">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 250px;">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

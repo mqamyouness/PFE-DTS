@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MyCoaches.Models.Choix>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Layout.cshtml";
+}
+@{Html.RenderPartial("../PartielsBackend/Filter");}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AbonnemetPrix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.textPub)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.img)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeEntrainment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Entraineur.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sport.Libelle)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbonnemetPrix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.textPub)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.img)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeEntrainment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entraineur.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sport.Libelle)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

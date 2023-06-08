@@ -1,0 +1,81 @@
+﻿@{
+    int j = 0, k = 3;
+    bool o = true;
+    string displayValue = "block";
+    string classValue = "";
+    var coaches = (List<MyCoaches.Models.Entraineur>)ViewData["coaches"];
+    foreach (var item in coaches)
+    {
+        j++;
+        if (j > 6)
+        {
+            displayValue = "none";
+        }
+        if (j == k)
+        {
+            classValue = "order-xl-last";
+            if (o)
+            {
+                k++;
+                o = false;
+            }
+            else
+            {
+                k = k + 3;
+                o = true;
+            }
+        }
+        else
+        {
+            classValue = "";
+        }
+        <div class="col-lg-6 d-flex count_item_coache" style="display:@displayValue  !important">
+            <div class="coach d-sm-flex align-items-stretch">
+                <div class="img @(classValue)" style="background-image: url('/Content/images/@(item.Personne.Photoprofile)');"></div>
+                <div class="text py-4 px-5 ">
+                    <span class="subheading">Coaches sport</span>
+                    <h3><a href="~/Profiles/Coache?coache=@item.id">@(item.Personne.Nom) &nbsp; @(item.Personne.Prenom)</a></h3>
+                    <p>
+                        @{
+                            for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= item.Evaluation)
+                                {
+                                    <span class="fa fa-star checked"></span>
+                                }
+                                else
+                                {
+                                    <span class="fa fa-star"></span>
+                                }
+                            }
+                        }
+                    </p>
+                    <p>
+                        @{
+                            var choix = ((List<MyCoaches.Models.Choix>)ViewData["choix"]);
+                            foreach (var item2 in choix)
+                            {
+                                if (item.id == item2.C_idEntraineur)
+                                {
+                                    @(item2.Sport.Libelle)
+                                    <br />
+                                }
+                            }
+                        }
+                    </p>
+                    <ul class="ftco-social-media d-flex mt-4">
+                        @{
+                            var linkRs = (List<MyCoaches.Models.reseauxSociaux>)ViewData["linkSc"];
+                            linkRs = linkRs.Where(l => l.C_idPersonne == item.C_idPersonne).ToList();
+                            foreach (var item2 in linkRs)
+                            {
+                                <li class="ftco-animate"><a href="@item2.Lnik" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-@item2.nameRs"></span></a></li>
+                            }
+                        }
+                    </ul>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    }
+}

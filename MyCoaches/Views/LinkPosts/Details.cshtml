@@ -1,0 +1,43 @@
+﻿@model MyCoaches.Models.LinkPost
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LinkPost</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TextPost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TextPost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post.TextPost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post.TextPost)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

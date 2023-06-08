@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutFrontend.cshtml";
+}
+<section class="hero-wrap js-fullheight">
+    <div class="overlay" style="background-image: url(../Content/images/bg_2.jpg);" data-stellar-background-ratio="0.5"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end">
+            <div class="col-md-12 text-center ftco-animate">
+                <h1 class="mb-3 bread" style="background-image: url(../Content/images/bg_1.jpg);" data-stellar-background-ratio="0.5">Contact Us</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home.</a></span> <span>Contact</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+   @{Html.RenderPartial("SectionInputContact");}
+
+

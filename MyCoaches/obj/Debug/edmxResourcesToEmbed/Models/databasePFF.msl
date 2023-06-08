@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PFEModelStoreContainer" CdmEntityContainer="PFEEntities">
+    <EntitySetMapping Name="Cartes">
+      <EntityTypeMapping TypeName="PFEModel.Carte">
+        <MappingFragment StoreEntitySet="Carte">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AdresseWeb" ColumnName="AdresseWeb" />
+          <ScalarProperty Name="NumeroCarte" ColumnName="NumeroCarte" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="CVC" ColumnName="CVC" />
+          <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commentaires">
+      <EntityTypeMapping TypeName="PFEModel.Commentaire">
+        <MappingFragment StoreEntitySet="Commentaire">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DateComnt" ColumnName="DateComnt" />
+          <ScalarProperty Name="TextComnt" ColumnName="TextComnt" />
+          <ScalarProperty Name="C_idPost" ColumnName="#idPost" />
+          <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entraineurs">
+      <EntityTypeMapping TypeName="PFEModel.Entraineur">
+        <MappingFragment StoreEntitySet="Entraineur">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Evaluation" ColumnName="Evaluation" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="DateDub" ColumnName="DateDub" />
+          <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinkCertifications">
+      <EntityTypeMapping TypeName="PFEModel.LinkCertification">
+        <MappingFragment StoreEntitySet="LinkCertification">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="TextCRF" ColumnName="TextCRF" />
+          <ScalarProperty Name="C_idEntraineur" ColumnName="#idEntraineur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinkPosts">
+      <EntityTypeMapping TypeName="PFEModel.LinkPost">
+        <MappingFragment StoreEntitySet="LinkPost">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="TextLinkPost" ColumnName="TextLinkPost" />
+          <ScalarProperty Name="C_idPost" ColumnName="#idPost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageEnvs">
+      <EntityTypeMapping TypeName="PFEModel.MessageEnv">
+        <MappingFragment StoreEntitySet="MessageEnv">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DateEnv" ColumnName="DateEnv" />
+          <ScalarProperty Name="TextMessage" ColumnName="TextMessage" />
+          <ScalarProperty Name="Lnik" ColumnName="Lnik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notifications">
+      <EntityTypeMapping TypeName="PFEModel.notification">
+        <MappingFragment StoreEntitySet="notifications">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+          <ScalarProperty Name="C_idPost" ColumnName="#idPost" />
+          <ScalarProperty Name="Vue" ColumnName="Vue" />
+          <ScalarProperty Name="typeNtif" ColumnName="typeNtif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paiements">
+      <EntityTypeMapping TypeName="PFEModel.Paiement">
+        <MappingFragment StoreEntitySet="Paiement">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="Datep" ColumnName="Datep" />
+          <ScalarProperty Name="C_idEntraineur" ColumnName="#idEntraineur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personnes">
+      <EntityTypeMapping TypeName="PFEModel.Personne">
+        <MappingFragment StoreEntitySet="Personne">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+          <ScalarProperty Name="DateNc" ColumnName="DateNc" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="MotsdePass" ColumnName="MotsdePass" />
+          <ScalarProperty Name="Photoprofile" ColumnName="Photoprofile" />
+          <ScalarProperty Name="ValidationChomp" ColumnName="ValidationChomp" />
+          <ScalarProperty Name="TextValidation" ColumnName="TextValidation" />
+          <ScalarProperty Name="Argent" ColumnName="Argent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="PFEModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DatePost" ColumnName="DatePost" />
+          <ScalarProperty Name="Titer" ColumnName="Titer" />
+          <ScalarProperty Name="Subjects" ColumnName="Subjects" />
+          <ScalarProperty Name="TextPost" ColumnName="TextPost" />
+          <ScalarProperty Name="C_idChoisez" ColumnName="#idChoisez" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reponses">
+      <EntityTypeMapping TypeName="PFEModel.Reponse">
+        <MappingFragment StoreEntitySet="Reponse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dateRpnd" ColumnName="dateRpnd" />
+          <ScalarProperty Name="TextRpnd" ColumnName="TextRpnd" />
+          <ScalarProperty Name="C_idCommentaire" ColumnName="#idCommentaire" />
+          <ScalarProperty Name="C_idPesonne" ColumnName="#idPesonne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sports">
+      <EntityTypeMapping TypeName="PFEModel.Sport">
+        <MappingFragment StoreEntitySet="Sport">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateurs">
+      <EntityTypeMapping TypeName="PFEModel.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateur">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WhatPeopleSays">
+      <EntityTypeMapping TypeName="PFEModel.WhatPeopleSay">
+        <MappingFragment StoreEntitySet="WhatPeopleSay">
+          <ScalarProperty Name="show" ColumnName="show" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TextSay" ColumnName="TextSay" />
+          <ScalarProperty Name="C_idPesonne" ColumnName="#idPesonne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reseauxSociauxes">
+      <EntityTypeMapping TypeName="PFEModel.reseauxSociaux">
+        <MappingFragment StoreEntitySet="reseauxSociaux">
+          <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+          <ScalarProperty Name="nameRs" ColumnName="nameRs" />
+          <ScalarProperty Name="Lnik" ColumnName="Lnik" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Abonnements">
+      <EntityTypeMapping TypeName="PFEModel.Abonnement">
+        <MappingFragment StoreEntitySet="Abonnement">
+          <ScalarProperty Name="autoReview" ColumnName="autoReview" />
+          <ScalarProperty Name="Peroide" ColumnName="Peroide" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="DateDub" ColumnName="DateDub" />
+          <ScalarProperty Name="C_idUtilisateur" ColumnName="#idUtilisateur" />
+          <ScalarProperty Name="C_idChoisez" ColumnName="#idChoisez" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnvoyePars">
+      <EntityTypeMapping TypeName="PFEModel.EnvoyePar">
+        <MappingFragment StoreEntitySet="EnvoyePar">
+          <ScalarProperty Name="Deriction" ColumnName="Deriction" />
+          <ScalarProperty Name="C_idMessage" ColumnName="#idMessage" />
+          <ScalarProperty Name="C_idUtilisateur" ColumnName="#idUtilisateur" />
+          <ScalarProperty Name="C_idEntraineur" ColumnName="#idEntraineur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Evaluations">
+      <EntityTypeMapping TypeName="PFEModel.Evaluation">
+        <MappingFragment StoreEntitySet="Evaluation">
+          <ScalarProperty Name="Evaluation1" ColumnName="Evaluation" />
+          <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+          <ScalarProperty Name="C_idPost" ColumnName="#idPost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Choixes">
+      <EntityTypeMapping TypeName="PFEModel.Choix">
+        <MappingFragment StoreEntitySet="Choix">
+          <ScalarProperty Name="TypeEntrainment" ColumnName="TypeEntrainment" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="textPub" ColumnName="textPub" />
+          <ScalarProperty Name="AbonnemetPrix" ColumnName="AbonnemetPrix" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="C_idSport" ColumnName="#idSport" />
+          <ScalarProperty Name="C_idEntraineur" ColumnName="#idEntraineur" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdminBackends">
+      <EntityTypeMapping TypeName="PFEModel.AdminBackend">
+        <MappingFragment StoreEntitySet="AdminBackend">
+          <ScalarProperty Name="gestionDesAdmin" ColumnName="gestionDesAdmin" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

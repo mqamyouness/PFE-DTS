@@ -1,0 +1,19 @@
+﻿<div id="filter">
+    <div><label for="myInput">Search :</label>&nbsp;<input class="form-control" id="myInput" type="text" placeholder="Search.."></div>
+    <div><label for="number">Show :</label>&nbsp;<input class="form-control" type="number" min="5" max="25" id="number" style="width:80px" /><label for="number">&nbsp; entries</label></div>
+</div>
+<style>
+    #filter > div > input {
+        width: auto;
+        display: inline-block;
+        margin-bottom: 5%;
+    }
+
+    #filter > div {
+        display: inline-block!important;
+    }
+
+    #filter > div:nth-child(2) {
+        float: right;
+    }
+</style>

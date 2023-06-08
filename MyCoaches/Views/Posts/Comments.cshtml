@@ -1,0 +1,74 @@
+﻿@{ 
+    var comentaire = (List<MyCoaches.Models.Commentaire>)ViewData["commentaire"];
+    var reponse = (List<MyCoaches.Models.Reponse>)ViewData["reponse"];
+}
+<h3 class="mb-5">@(comentaire.Count() + reponse.Count()) Comments</h3>
+<ul class="comment-list" id="listCmt">
+
+    @{
+        foreach (var item in comentaire)
+        {
+            <li class="comment">
+                <div class="vcard bio">
+                    <img src="/Content/images/@(item.Personne.Photoprofile)" alt="Image placeholder">
+                </div>
+                <div class="comment-body">
+                    <h3>@(item.Personne.Nom) &nbsp; @(item.Personne.Prenom) </h3>
+                    <div class="meta">
+                        @{ System.Globalization.CultureInfo info = new System.Globalization.CultureInfo("en-US"); var m = info.DateTimeFormat.GetMonthName(item.DateComnt.Value.Month); }@(m.Substring(0, 4))
+                        @(item.DateComnt.Value.Day)&nbsp;,&nbsp; @(item.DateComnt.Value.Year)&nbsp;at&nbsp;@(item.DateComnt.Value.ToShortTimeString())am
+                    </div>
+                    <p>@(item.TextComnt)</p>
+                    <a class="reply" style="cursor:pointer;">Reply</a>
+                    <div class="comment-form-wrap pt-5" style="display:none;">
+                        <h3 class="mb-5">Replay</h3>
+                        <form action="#">
+                            <div class="form-group">
+                                <label >Message</label>
+                                <textarea name=""  cols="30" rows="3" class="form-control" style="color:white;"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="button" value="Reply" class="btn py-3 px-4 btn-primary submitReply" idComment="@(item.id)">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <ul class="children">
+                    @{
+                        var r = (List<MyCoaches.Models.Reponse>)item.Reponses.Where(rc => rc.C_idCommentaire == item.id).ToList();
+
+                        foreach (var item2 in r)
+                        {
+                            <li class="comment" style="border-left:solid 1px red;">
+                                <div class="vcard bio">
+                                    <img src="/Content/images/@(item2.Personne.Photoprofile)" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                    <h3>@(item2.Personne.Nom) &nbsp; @(item2.Personne.Prenom)</h3>
+                                    <div class="meta">
+                                        @{ System.Globalization.CultureInfo info1 = new System.Globalization.CultureInfo("en-US"); var m1 = info1.DateTimeFormat.GetMonthName(item2.dateRpnd.Value.Month); }@(m1.Substring(0, 4))
+                                        @(item2.dateRpnd.Value.Day)&nbsp;,&nbsp; @(item2.dateRpnd.Value.Year)&nbsp;at&nbsp;@(item2.dateRpnd.Value.ToShortTimeString())am
+                                    </div>
+                                    <p>@(item2.TextRpnd)</p>
+                                    <a class="reply" style="cursor:pointer;">Reply</a>
+                                    <div class="comment-form-wrap pt-5" style="display:none">
+                                        <h3 class="mb-5">Replay</h3>
+                                        <form action="#">
+                                            <div class="form-group">
+                                                <label for="">Message</label>
+                                                <textarea cols="30" rows="3" class="form-control" style="color:white;"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="button" value="Reply" class="btn py-3 px-4 btn-primary submitReply" idComment="@(item.id)">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </li>
+        }
+    }
+</ul>

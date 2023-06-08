@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Layout.cshtml";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!--dub -->
+            <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Users Statistics</h4>
+                        <p class="card-category">Number of Users</p>
+                    </div>
+                    <div class="card-body ">
+                        <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                        <div class="legend">
+                            <i class="fa fa-circle text-info"></i> Mens
+                            <i class="fa fa-circle text-danger"></i> Womens
+                        </div>
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-clock-o"></i>  sent 5 mins ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                dataValuesSrcl1 = [@ViewBag.NumbersDashboardSrcl1[0]+1, @ViewBag.NumbersDashboardSrcl1[1]];
+            </script>
+            <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Type user Statistics</h4>
+                        <p class="card-category">Last load</p>
+                    </div>
+                    <div class="card-body ">
+                        <div id="chartPreferences2" class="ct-chart ct-perfect-fourth"></div>
+                        <div class="legend">
+                            <i class="fa fa-circle text-info"></i> Client
+                            <i class="fa fa-circle text-danger"></i> Coaches
+                        </div>
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-clock-o"></i>  sent 5 mins ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                dataValuesSrcl2 = [@ViewBag.NumbersDashboardSrcl2[0]+1, @ViewBag.NumbersDashboardSrcl2[1]];
+            </script>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header ">
+                        <h4 class="card-title">Years old of Users Statistics</h4>
+                        <p class="card-category">statistics for age</p>
+                    </div>
+                    <div class="card-body ">
+                        <div id="chartPreferences3" class="ct-chart ct-perfect-fourth"></div>
+                        <div class="legend">
+                            <i class="fa fa-circle text-info"></i> 12-18
+                            <i class="fa fa-circle text-danger"></i> 18-24
+                            <i class="fa fa-circle text-warning"></i> 24-32
+                            <i class="fa fa-circle " style="color:#9368E9;"></i> 32 >
+                        </div>
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-clock-o"></i> sent 5 mins ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .card{
+                    padding: 1% 4%;
+                }
+            </style>
+            <script>
+                dataValuesSrcl3 = [@ViewBag.NumbersDashboardSrcl3[0], @ViewBag.NumbersDashboardSrcl3[1], @ViewBag.NumbersDashboardSrcl3[2]+1, @ViewBag.NumbersDashboardSrcl3[3]+1];
+            </script>
+            <!--fin srcl-->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header ">
+                        <h4 class="card-title">Users Behavior</h4>
+                        <p class="card-category">24 Hours performance</p>
+                    </div>
+                    <div class="card-body ">
+                        <div id="chartHours" class="ct-chart"></div>
+                    </div>
+                    <div class="card-footer ">
+                        <div class="legend">
+                            <i class="fa fa-circle text-info"></i> Open
+                            <i class="fa fa-circle text-danger"></i> Click
+                            <i class="fa fa-circle text-warning"></i> Click Second Time
+                        </div>
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-history"></i> Updated 3 minutes ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">2017 Sales</h4>
+                        <p class="card-category">All products including Taxes</p>
+                    </div>
+                    <div class="card-body ">
+                        <div id="chartActivity" class="ct-chart"></div>
+                    </div>
+                    <div class="card-footer ">
+                        <div class="legend">
+                            <i class="fa fa-circle text-info"></i> Tesla Model S
+                            <i class="fa fa-circle text-danger"></i> BMW 5 Series
+                        </div>
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-check"></i> Data information certified
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

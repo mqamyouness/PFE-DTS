@@ -1,0 +1,142 @@
+.user_profile{
+    padding-top: 100px;
+    padding-bottom: 50px
+}
+.user_profile > div{
+    background-color: transparent;
+    padding-top: 50px;
+}
+.user_profile .basic_info .user_image{
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    background-color: white;
+    border: #d4d4dc 1px solid;
+    padding: 5px;
+    margin: auto
+}
+.user_profile .basic_info .user_image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.user_profile .basic_info .user_name{
+    text-align: center;
+    color: #72748b;
+    font-weight: bold;
+    font-family: raleway;
+    font-size: 20px
+}
+.user_profile .basic_info ul{
+    padding: 0px;
+    list-style: none;
+    text-align: center;
+    color: #72748b;
+    font-family: raleway;  
+    margin-top: 12px;
+    margin-bottom: 12px
+}
+.user_profile .basic_info ul img{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px
+}
+.user_profile .basic_info .flowers_links{
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 30px
+}
+.user_profile .basic_info .flowers_links input{
+    background-color: transparent;
+    border: skyblue 2px solid;
+    color: skyblue;
+    font-weight: bold
+}
+.user_profile .basic_info .basic_info_label{
+    color: #989fb1;
+    font-family: raleway;  
+    font-weight: bold;
+    font-size: 15px;
+}
+.user_profile .basic_info p{
+    color: #989aaf;
+    font-family: raleway;      
+}
+.user_profile .basic_info .contact_info a{
+    color: #84a1d9;
+    font-weight: bold
+}
+.user_profile .basic_info .contact_info img{
+    float: left;
+    margin-right: 20px;
+    width: 15px;
+    height: 15px;
+    margin-top: 5px
+}
+.user_profile .basic_info .contact_info > div{
+    margin-bottom: 12px
+}
+.user_profile .user_profile_body > header{
+    border-bottom: #cfd0e5 2px solid;
+}
+.user_profile .user_profile_body > header .item{
+    padding: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: #edeeff 2px solid;
+    color: red;
+    font-family: raleway;  
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px
+}
+.user_profile .user_profile_body > header .item_hover{
+    border-bottom: #2e3a54 2px solid;
+    background-color: white
+}
+.user_profile .user_profile_body .user_info_item{
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 2px;
+    padding-top: 10px
+}
+.user_profile .user_profile_body .activities_info_item .label{
+    color: #90949c;
+    font-weight: 600;
+    line-height: 26px;
+}
+.user_profile .user_profile_body .activities_info_item .icon img{
+     width: 35px;
+     height: 35px
+}
+.user_profile .user_profile_body .activities_info_item .ligne_label{
+    color: #90949c;
+    font-size: 12px;
+    line-height: 16px;
+}
+.user_profile .user_profile_body .activities_info_item .ligne > div{
+    margin: auto
+}
+.user_profile .user_profile_body .activities_info_item .ligne{
+    padding: 5px;
+    border-radius: 5px;
+    color: #4b4f56;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 15px
+}
+.user_profile .user_profile_body .activities_info_item .work .work_title, 
+.user_profile .user_profile_body .activities_info_item .education .education_title{
+        color: #385898;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+@media(min-width: 599px){
+    .user_profile .user_profile_body .user_info_item{
+        height: 599px
+    }
+}

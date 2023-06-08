@@ -1,0 +1,97 @@
+﻿@model IEnumerable<MyCoaches.Models.Personne>
+
+@{
+    ViewBag.Title = "Personne";
+    Layout = "~/Views/_Layout.cshtml";
+}
+@{Html.RenderPartial("../PartielsBackend/Filter");}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateNc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotsdePass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photoprofile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValidationChomp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TextValidation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Argent)
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateNc))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotsdePass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Photoprofile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValidationChomp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TextValidation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Argent)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,220 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/_LayoutFrontend.cshtml";
+    
+}
+<!--Post-->
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">
+                    <i class="db-left"></i>
+                    Read Posts
+                    <i class="db-right"></i>
+                </span>
+                <h2 class="mb-3">Recent Posts</h2>
+                <p>Our Coaches Lastest Posts</p>
+            </div>
+        </div>
+        <div class="row d-flex">
+            @{
+                var post = (List<MyCoaches.Models.Post>) ViewData["Posts"];
+                foreach (var item in post)
+                {
+                    <div class="col-lg-4 ftco-animate count_item" >
+                        <div class="blog-entry align-self-stretch">
+                            <a href="~/Posts/DetailsPost/@item.id" class="block-20" style="background-image: url('../Content/images/@item.LinkPosts.First().Link');">
+                            </a>
+                            <div class="text py-4 d-flex">
+                                <div class="meta text-center">
+                                    <span class="day">@item.DatePost.Value.Day</span>
+                                    <span class="mos">@{ System.Globalization.CultureInfo info = new System.Globalization.CultureInfo("en-US"); var m = info.DateTimeFormat.GetMonthName(item.DatePost.Value.Month); }@(m)</span>
+                                    <span class="yr">@item.DatePost.Value.Year</span>
+                                </div>
+                                <div class="desc">
+                                    <h3 class="heading mt-2"><a href="~/Posts/DetailsPost/Post=@item.id">@item.Titer</a></h3>
+                                    <p>@item.Subjects</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+<!--End Post-->
+<!--Abonnemznt-->
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-10 heading-section text-center ftco-animate">
+                <span class="subheading">
+                    <i class="db-left"></i>
+                    Courses
+                    <i class="db-right"></i>
+                </span>
+                <h2 class="mb-3">Our Sports</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Rows Show Sports-->
+            @{
+                var choix = (List<MyCoaches.Models.Choix>)ViewData["Choix"];
+                foreach(var item in choix)
+                {
+                    <div class="col-md-4">
+                        <div class="pricing-wrap ftco-animate img" style="background-image: url(/Content/images/@item.img);">
+                            <div class="title p-4">
+                                <h3>@item.Entraineur.Personne.Nom &nbsp; @item.Entraineur.Personne.Prenom</h3>
+                                <span>Behind the word mountains</span>
+                            </div>
+                            <div class="text p-4 d-flex align-items-end">
+                                <a href="~/Sports/Join/@(item.id)" class="btn-custom px-4 py-2">Enroll Now</a>
+                                <div>
+                                    <span class="price">$@item.AbonnemetPrix</span>
+                                    <h3>@item.Entraineur.Personne.Nom &nbsp; @item.Entraineur.Personne.Prenom</h3>
+                                    <p>Far far away, behind the word mountains, far from the countries.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            <!--End Rows Show Sports-->
+        </div>
+    </div>
+</section>
+<!--Abonnement-->
+<!--Coaches-->
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">
+                    <i class="db-left"></i>
+                    Trainer
+                    <i class="db-right"></i>
+                </span>
+                <h2 class="mb-3">Our Coaches</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            @{
+                int j = 0, k = 3;
+                bool o = true;
+                string classValue = "";
+                var coache = (List<MyCoaches.Models.Entraineur>)ViewData["Coaches"];
+                foreach (var item in coache)
+                {
+                    j++;
+                    if (j == k)
+                    {
+                        classValue = "order-xl-last";
+                        if (o)
+                        {
+                            k++;
+                            o = false;
+                        }
+                        else
+                        {
+                            k = k + 3;
+                            o = true;
+                        }
+                    }
+                    else
+                    {
+                        classValue = "";
+                    }
+                    <div class="col-lg-6 d-flex">
+                        <div class="coach d-sm-flex align-items-stretch">
+                            <div class="img @(classValue)" style="background-image: url('/Content/images/@(item.Personne.Photoprofile)');"></div>
+                            <div class="text py-4 px-5 ftco-animate">
+                                <span class="subheading">Sport name</span>
+                                <h3><a href="~/Profiles/Coache?coache=@item.id">@(item.Personne.Nom) &nbsp; @(item.Personne.Prenom)</a></h3>
+                                <p>
+                                    @{
+                                        for (int i = 1; i <= 5; i++)
+                                        {
+                                            if (i <= item.Evaluation)
+                                            {
+                                                <span class="fa fa-star checked"></span>
+                                            }
+                                            else
+                                            {
+                                                <span class="fa fa-star"></span>
+                                            }
+                                        }
+                                    }
+                                </p>
+                                <p>
+                                    @{
+                                        var choixCoch = (List<MyCoaches.Models.Choix>)item.Choixes.Where(c => c.C_idEntraineur == item.id).ToList();
+                                        foreach (var item2 in choixCoch)
+                                        {
+                                            @(item2.Sport.Libelle)
+                                            <br />
+                                        }
+                                    }
+                                </p>
+                                <ul class="ftco-social-media d-flex mt-4">
+                                    @{
+                                        var linkRs = (List<MyCoaches.Models.reseauxSociaux>)ViewData["linkSc"];
+                                        linkRs = linkRs.Where(l => l.C_idPersonne == item.C_idPersonne).ToList();
+                                        foreach (var item2 in linkRs)
+                                        {
+                                            <li class="ftco-animate"><a href="@item2.Lnik" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-@item2.nameRs"></span></a></li>
+                                        }
+                                    }
+                                </ul>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+<!--End Coaches-->
+
+<!--Sport-->
+<section class="ftco-gallery">
+    <div class="container-wrap">
+        <div class="row no-gutters">
+            <div class="col-md-3 ftco-animate">
+                <a href="~/In" class="gallery img d-flex align-items-center" style="background-image: url(/Content/images/gallery-1.jpg);">
+                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                        <span class="icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <a href="~/In" class="gallery img d-flex align-items-center" style="background-image: url(/Content/images/gallery-2.jpg);">
+                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                        <span class="icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <a href="~/In" class="gallery img d-flex align-items-center" style="background-image: url(/Content/images/gallery-3.jpg);">
+                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                        <span class="icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <a href="~/In" class="gallery img d-flex align-items-center" style="background-image: url(/Content/images/gallery-4.jpg);">
+                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                        <span class="icon-search"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Sport-->

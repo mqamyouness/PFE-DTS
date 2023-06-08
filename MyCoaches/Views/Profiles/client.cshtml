@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "client";
+    Layout = "~/Views/_LayoutFrontend.cshtml";
+    var user = (List<MyCoaches.Models.Utilisateur>)ViewData["client"];
+}
+<section class="hero-wrap js-fullheight">
+    <div class="overlay" style="background-image: url(/Content/images/bg_2.jpg);" data-stellar-background-ratio="0.5"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end">
+            <div class="col-md-10 text-center ftco-animate">
+                <div class="coach d-sm-flex ">
+                    <div class="pricing-wrap img" style="background-image: url(/Content/images/@user.First().Personne.Photoprofile);"></div>
+                    <div class="text py-4 px-5 ftco-animate">
+                        <h3><a>@(user.First().Personne.Nom) &nbsp; @(user.First().Personne.Prenom)</a></h3>
+                        <p>@(user.First().Personne.Sexe)</p>
+                        <p>@user.First().Personne.DateNc.Value.ToShortDateString()</p>
+                        <p>@user.First().Personne.Email</p>
+                        <p>@user.First().Personne.Telephone</p>
+                        <ul class="ftco-social-media d-flex mt-4">
+                            @{
+                                var linkRs = (List<MyCoaches.Models.reseauxSociaux>)ViewData["linkSc"];
+                                foreach (var item in linkRs)
+                                {
+                                    <li class="ftco-animate"><a href="@item.Lnik" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-@item.nameRs"></span></a></li>
+                                }
+                            }
+                        </ul>
+                        <a class="btn btn-outline-danger">Chats</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,54 @@
+﻿@{
+    if (Session["client"] != null)
+    {
+        var contact = (List<MyCoaches.Models.Entraineur>)ViewData["contact"];
+        string atv = "class=active_li";
+        foreach (var item in contact)
+        {
+            <li @(atv) idContact="@(item.id)">
+                <div class="d-flex bd-highlight">
+                    <div class="img_cont">
+                        <img src="~/Content/images/@(item.Personne.Photoprofile)" class="rounded-circle user_img">
+                        <span class="online_icon"></span>
+                    </div>
+                    <div class="user_info">
+                        <span>@(item.Personne.Nom) &nbsp; @(item.Personne.Prenom)</span>
+                        <p>
+                            @(item.Personne.Nom)
+                            is online
+                        </p>
+                    </div>
+                </div>
+            </li>
+            @(atv = "")
+        }
+    }
+    else
+    {
+        var contact = (List<MyCoaches.Models.Utilisateur>)ViewData["contact"];
+        string atv = "class=active_li";
+        if (contact != null)
+        {
+            foreach (var item in contact)
+            {
+                <li @(atv) idContact="@(item.id)">
+                    <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                            <img src="~/Content/images/@(item.Personne.Photoprofile)" class="rounded-circle user_img">
+                            <span class="online_icon"></span>
+                        </div>
+                        <div class="user_info">
+                            <span>@(item.Personne.Nom) &nbsp; @(item.Personne.Prenom)</span>
+                            <p>
+                                @(item.Personne.Nom)
+                                is online
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                @(atv = "")
+            }
+        }
+    }
+
+}

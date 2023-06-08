@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MyCoaches.Models.WhatPeopleSay>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Layout.cshtml";
+}
+@{Html.RenderPartial("../PartielsBackend/Filter");}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TextSay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.show)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personne.Nom)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TextSay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.show)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Personne.Nom)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

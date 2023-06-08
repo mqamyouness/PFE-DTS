@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutFrontend.cshtml";
+}
+<section class="ftco-section" id="coachesSection">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">
+                    <i class="db-left"></i>
+                    Trainer
+                    <i class="db-right"></i>
+                </span>
+                <h2 class="mb-3">Our Coaches</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-5">
+            <div class="sidebar-box">
+                <form action="Coaches" method="get" class="search-form">
+                    <div class="form-group">
+                        <div class="icon">
+                            <span class="icon-search"></span>
+                        </div>
+                        <input type="text" id="searchfiltercoaches" class="form-control" placeholder="Search...">
+                    </div>
+                    <div class="sidebar-box ftco-animate">
+                        <h3 class="heading2">Tag Cloud</h3>
+                        <div class="tagcloud">
+                            <button type="button" class="btn btn-outline-danger click_activ" value="Men">Men</button>
+                            <button type="button" class="btn btn-outline-danger click_activ" value="Women">Women</button>
+                            <button type="button" class="btn btn-outline-danger click_activ" value="Old">Old</button>
+                            <button type="button" class="btn btn-outline-danger click_activ" value="Top">Top</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row no-gutters" id="coaches">
+            <!-- Rows Show Coaches -->
+            @{Html.RenderPartial("coaches");}
+            <!--End Rows Show Coaches -->
+        </div>
+        <div class="row mt-5" id="navigCoache" style="display:none;">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul id="navbarNum"></ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            var numberCoach = document.querySelectorAll('.count_item_coache').length;
+            if (numberCoach > 6) {
+                document.getElementById("navigCoache").style.display = "block";
+                var count = 0;
+                var text = "<li><a class='clickNavCoach' style='cursor: pointer;font-size:24px;'  val='prs'>&lt;</a></li>&nbsp;";
+                if ((numberCoach % 6) == 0) {
+                    count = numberCoach / 6;
+                } else {
+                    count = Math.floor(numberCoach / 6) + 1;
+                }
+                for (var i = 1; i <= count; i++) {
+
+                    if (i == 1)
+                        text += '<li class="active"><a class="clickNavCoach" style="cursor:pointer;font-size:24px;" val=' + i + '><span>' + i + '</span></a></li>&nbsp;';
+                    else
+                        text += '<li><a class="clickNavCoach" style="cursor:pointer;font-size:24px;" val=' + i + '><span>' + i + '</span></a></li>&nbsp;';
+                }
+                text += "<li><a class='clickNavCoach' style='cursor: pointer;font-size:24px;' val='suv'>&gt;</a></li>";
+                document.getElementById("navbarNum").innerHTML = text;
+                var tour = 1;
+            }
+        </script>
+    </div>
+</section>
+

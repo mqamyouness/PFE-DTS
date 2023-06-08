@@ -1,0 +1,27 @@
+﻿@model MyCoaches.Models.Sport
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Libelle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,183 @@
+﻿@{ 
+    if (Session["Admin"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>My Coaches</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS     -->
+    <link href="~/Content/Backend/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Animation library for notifications   -->
+    <link href="~/Content/Backend/assets/css/animate.min.css" rel="stylesheet" />
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="~/Content/Backend/assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="~/Content/Backend/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-color="black" style="z-index:1000000">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="#" class="simple-text">
+                        My Coaches
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li id="Dashboard">
+                        <a href="~/Dashboard/Index">
+                            <i class="pe-7s-graph"></i>
+                            <p>Dashboaed</p>
+                        </a>
+                    </li>
+                    <li id="Personnes">
+                        <a href="~/Personnes/Index">
+                            <i class="pe-7s-user"></i>
+                            <p>Personnes</p>
+                        </a>
+                    </li>
+                    <li id="Entraineurs">
+                        <a href="~/Entraineurs/Index">
+                            <i class="fa fa-users"></i>
+                            <p>Entraineurs</p>
+                        </a>
+                    </li>
+                    <li id="Utilisateurs">
+                        <a href="~/Utilisateurs/Index">
+                            <i class="fa fa-users"></i>
+                            <p>Utilisateurs</p>
+                        </a>
+                    </li>
+                    <li id="PostsBack">
+                        <a href="~/PostsBack/Index">
+                            <i class="pe-7s-news-paper"></i>
+                            <p>Post</p>
+                        </a>
+                    </li>
+                    <li id="LinkPosts">
+                        <a href="~/LinkPosts/Index">
+                            <i class="fa fa-link"></i>
+                            <p>Link Post</p>
+                        </a>
+                    </li>
+                    <li id="SportsBackend">
+                        <a href="~/SportsBackend/Index">
+                            <i class="fa fa-dribbble"></i>
+                            <p>Sports</p>
+                        </a>
+                    </li>
+                    <li id="Abonnements">
+                        <a href="~/Abonnements/Index">
+                            <i class="fa fa-handshake-o"></i>
+                            <p>Abonnements</p>
+                        </a>
+                    </li>
+                    <li id="Choixes">
+                        <a href="~/Choixes/Index">
+                            <i class="fa fa-check"></i>
+                            <p>Choixes</p>
+                        </a>
+                    </li>
+                    <li id="Paiements">
+                        <a href="~/Paiements/Index">
+                            <i class="fa fa-money"></i>
+                            <p>Paiment</p>
+                        </a>
+                    </li>
+                    <li id="WhatPeopleSays">
+                        <a href="~/WhatPeopleSays/Index">
+                            <i class="fa fa-commenting"></i>
+                            <p>What people say</p>
+                        </a>
+                    </li>
+                    @{
+                        if (Session["AdminPr"] != null)
+                        {
+                            <li id="AdminBackends" class="active-pro">
+                                <a href="~/AdminBackends/Index">
+                                    <i class="pe-7s-user"></i>
+                                    <p>Admin</p>
+                                </a>
+                            </li>
+                        }
+                    }
+                </ul>
+                @{ string controllerValue = ViewContext.RouteData.Values["controller"].ToString();}
+                <script>document.getElementById("@controllerValue").classList.add("active");</script>
+            </div>
+        </div>
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand">@(controllerValue)</a>
+                        @{
+                            if (controllerValue != "Dashboard")
+                            {
+                                <a class="navbar-brand" href="~/@(controllerValue)/Create"><i class="fa fa-plus-square"></i>&nbsp; Create New</a>
+                            }
+                        }
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="~/Login/Logout">
+                                    Log out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--   Core JS Files   -->
+    <script src="~/Content/Backend/assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+    <script src="~/Content/Backend/assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <!--  Charts Plugin -->
+    <script src="~/Content/Backend/assets/js/chartist.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="~/Content/Backend/assets/js/bootstrap-notify.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+    <script src="~/Content/Backend/assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+    <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+    <script src="~/Content/Backend/assets/js/demo.js"></script>
+    <script src="~/Scripts/BackendJS.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            demo.initChartist();
+            $(document).ready(function () {
+                $('#myTable').DataTable();
+            });
+        });
+    </script>
+</body>
+</html>

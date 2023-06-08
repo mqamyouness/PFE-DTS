@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "DetailsPost";
+    Layout = "~/Views/_LayoutFrontend.cshtml";
+    var personne = (List<MyCoaches.Models.Personne>)ViewData["personnescmt"];
+    var personneCoach = (List<MyCoaches.Models.Personne>)ViewData["personneCoach"];
+    var post  = (List<MyCoaches.Models.Post>)ViewData["post"];
+    var linkpost = (List<MyCoaches.Models.LinkPost>)ViewData["linkpost"];
+
+}
+<section class="ftco-section">
+    <div class="container">
+        <div class="row" id="DivDetailes" idPost="@(post[0].id)">
+            <div class="col-md-8 ftco-animate">
+                <div class="about-author d-flex">
+                    @{
+                        <div class="bio align-self-md-center mr-5">
+                            <img src="/Content/images/@(personneCoach[0].Photoprofile)" alt="Image placeholder" class="img-fluid mb-4">
+
+                        </div>
+                        <div class="desc align-self-md-center">
+                            <h2>@(personneCoach[0].Nom) &nbsp; @(personneCoach[0].Prenom) </h2>
+                            <p>Date : @(post[0].DatePost.Value.ToShortDateString())  </p>
+                            <p>Titer : @(post[0].Titer)</p>
+                            <p>Subject@(post[0].Subjects)</p>
+                        </div>
+                    }
+                </div>
+                <p>@(post[0].TextPost)</p>
+                <p>
+                    <img src="/Content/images/@(linkpost[0].Link)" alt="" class="img-fluid">
+                </p>
+                <div class="tag-widget post-tag-container mb-5 mt-5" id="ParentReact" >
+                    @{Html.RenderPartial("Evaluation");}
+                </div>
+                <div class="pt-5 mt-5" id="comment"  style="display:none">
+                    @{Html.RenderPartial("Comments");}
+                    <!-- END comment-list -->
+                </div>
+                <div class="comment-form-wrap pt-5">
+                    <h3 class="mb-5">Leave a comment</h3>
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="" id="message" cols="30" rows="3" class="form-control" style="color:white;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" id="btnPostComment" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div> <!-- .col-md-8 -->
+            <!---->
+            <div class="col-md-4 sidebar ftco-animate">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <div class="icon">
+                                <span class="icon-search"></span>
+                            </div>
+                            <input type="text" class="form-control" id="searchMinPost" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-box ftco-animate" id="minPost">
+                    
+                    @{Html.RenderPartial("minPost");}
+                </div>
+            </div>
+    </div>
+</section> <!-- .section -->

@@ -1,0 +1,30 @@
+﻿
+@{
+    int i = 0;
+    var sports = (List<MyCoaches.Models.Choix>)ViewData["sports"];
+    foreach (var item in sports)
+    {
+        string displayValue = "block";
+        i++;
+        if (i > 9)
+        {
+            displayValue = "none";
+        }
+        <div class="col-md-4 count_item_Choix" style="display:@(displayValue)">
+            <div class="pricing-wrap img" style="background-image: url(/Content/images/@item.img);">
+                <div class="title p-4">
+                    <h3>@item.Entraineur.Personne.Nom &nbsp; @item.Entraineur.Personne.Prenom</h3>
+                    <span>@(item.Sport.Libelle)</span>
+                </div>
+                <div class="text p-4 d-flex align-items-end">
+                    <a href="~/Sports/Join/@(item.id)" class="btn-custom px-4 py-2">Join Now</a>
+                    <div>
+                        <span class="price">$@item.AbonnemetPrix</span>
+                        <h3><a href="~/Sports/Join/@(item.id)">@item.Entraineur.Personne.Nom &nbsp; @item.Entraineur.Personne.Prenom</a></h3>
+                        <p>@item.textPub</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

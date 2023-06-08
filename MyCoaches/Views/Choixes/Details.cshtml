@@ -1,0 +1,75 @@
+﻿@model MyCoaches.Models.Choix
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Choix</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AbonnemetPrix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AbonnemetPrix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.textPub)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.textPub)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.img)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.img)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeEntrainment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeEntrainment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entraineur.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entraineur.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sport.Libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sport.Libelle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

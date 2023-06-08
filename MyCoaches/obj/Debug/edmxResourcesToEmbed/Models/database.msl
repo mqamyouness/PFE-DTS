@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDPFEModelStoreContainer" CdmEntityContainer="BDPFEEntities">
+    <EntitySetMapping Name="Carte">
+      <EntityTypeMapping TypeName="BDPFEModel.Carte">
+        <MappingFragment StoreEntitySet="Carte">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AdresseWeb" ColumnName="AdresseWeb" />
+          <ScalarProperty Name="NumeroCarte" ColumnName="NumeroCarte" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="CVC" ColumnName="CVC" />
+          <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Choix">
+      <EntityTypeMapping TypeName="BDPFEModel.Choix">
+        <MappingFragment StoreEntitySet="Choix">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="C_idEntraineur" ColumnName="#idEntraineur" />
+          <ScalarProperty Name="C_idSport" ColumnName="#idSport" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="TypeEntrainment" ColumnName="TypeEntrainment" />
+          <ScalarProperty Name="AbonnemetPrix" ColumnName="AbonnemetPrix" />
+          <ScalarProperty Name="JournalierPrix" ColumnName="JournalierPrix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commentaire">
+      <EntityTypeMapping TypeName="BDPFEModel.Commentaire">
+        <MappingFragment StoreEntitySet="Commentaire">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DateComnt" ColumnName="DateComnt" />
+          <ScalarProperty Name="TextComnt" ColumnName="TextComnt" />
+          <ScalarProperty Name="C_idPost" ColumnName="#idPost" />
+          <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entraineur">
+      <EntityTypeMapping TypeName="BDPFEModel.Entraineur">
+        <MappingFragment StoreEntitySet="Entraineur">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Evaluation" ColumnName="Evaluation" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="DateDub" ColumnName="DateDub" />
+          <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinkCertification">
+      <EntityTypeMapping TypeName="BDPFEModel.LinkCertification">
+        <MappingFragment StoreEntitySet="LinkCertification">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="TextCRF" ColumnName="TextCRF" />
+          <ScalarProperty Name="C_idEntraineur" ColumnName="#idEntraineur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinkPost">
+      <EntityTypeMapping TypeName="BDPFEModel.LinkPost">
+        <MappingFragment StoreEntitySet="LinkPost">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="TextPost" ColumnName="TextPost" />
+          <ScalarProperty Name="C_idPost" ColumnName="#idPost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageEnv">
+      <EntityTypeMapping TypeName="BDPFEModel.MessageEnv">
+        <MappingFragment StoreEntitySet="MessageEnv">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DateEnv" ColumnName="DateEnv" />
+          <ScalarProperty Name="TextMessage" ColumnName="TextMessage" />
+          <ScalarProperty Name="Lnik" ColumnName="Lnik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paiement">
+      <EntityTypeMapping TypeName="BDPFEModel.Paiement">
+        <MappingFragment StoreEntitySet="Paiement">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="Datep" ColumnName="Datep" />
+          <ScalarProperty Name="C_idEntraineur" ColumnName="#idEntraineur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personne">
+      <EntityTypeMapping TypeName="BDPFEModel.Personne">
+        <MappingFragment StoreEntitySet="Personne">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+          <ScalarProperty Name="DateNc" ColumnName="DateNc" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="MotsdePass" ColumnName="MotsdePass" />
+          <ScalarProperty Name="Photoprofile" ColumnName="Photoprofile" />
+          <ScalarProperty Name="ValidationChomp" ColumnName="ValidationChomp" />
+          <ScalarProperty Name="TextValidation" ColumnName="TextValidation" />
+          <ScalarProperty Name="Argent" ColumnName="Argent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="BDPFEModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Titer" ColumnName="Titer" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DatePost" ColumnName="DatePost" />
+          <ScalarProperty Name="TextPost" ColumnName="TextPost" />
+          <ScalarProperty Name="C_idChoisez" ColumnName="#idChoisez" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reponse">
+      <EntityTypeMapping TypeName="BDPFEModel.Reponse">
+        <MappingFragment StoreEntitySet="Reponse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dateRpnd" ColumnName="dateRpnd" />
+          <ScalarProperty Name="TextRpnd" ColumnName="TextRpnd" />
+          <ScalarProperty Name="C_idCommentaire" ColumnName="#idCommentaire" />
+          <ScalarProperty Name="C_idPesonne" ColumnName="#idPesonne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sport">
+      <EntityTypeMapping TypeName="BDPFEModel.Sport">
+        <MappingFragment StoreEntitySet="Sport">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateur">
+      <EntityTypeMapping TypeName="BDPFEModel.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateur">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

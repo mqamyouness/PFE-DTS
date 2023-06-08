@@ -1,0 +1,115 @@
+﻿@model MyCoaches.Models.Personne
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Personne</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sexe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateNc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateNc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MotsdePass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotsdePass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photoprofile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photoprofile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValidationChomp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValidationChomp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TextValidation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TextValidation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Argent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Argent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

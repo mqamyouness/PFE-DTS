@@ -1,0 +1,67 @@
+﻿@model MyCoaches.Models.Abonnement
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Abonnement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDub)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDub)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peroide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peroide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.autoReview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.autoReview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utilisateur.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilisateur.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Choix.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Choix.Category)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

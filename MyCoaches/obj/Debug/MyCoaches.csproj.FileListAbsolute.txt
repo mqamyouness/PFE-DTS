@@ -1,0 +1,158 @@
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\MyCoaches.dll.config
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\MyCoaches.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\MyCoaches.pdb
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\csc.exe
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\csc.exe.config
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\csc.rsp
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\csi.exe
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\csi.exe.config
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\csi.rsp
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\Microsoft.Managed.Core.targets
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.AppContext.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Collections.Immutable.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Console.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.IO.Compression.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.IO.FileSystem.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.IO.Pipes.AccessControl.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.IO.Pipes.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Reflection.Metadata.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Security.AccessControl.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Security.Claims.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Security.Principal.Windows.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.ValueTuple.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Xml.XmlDocument.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Xml.XPath.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\vbc.exe
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\vbc.exe.config
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\vbc.rsp
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\VBCSCompiler.exe
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\roslyn\VBCSCompiler.exe.config
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\EntityFramework.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\EntityFramework.SqlServer.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\Microsoft.Web.Infrastructure.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Helpers.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Mvc.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Razor.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Webpages.Deployment.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Webpages.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Webpages.Razor.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\EntityFramework.xml
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\EntityFramework.SqlServer.xml
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Razor.xml
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Webpages.xml
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Webpages.Deployment.xml
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Webpages.Razor.xml
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Helpers.xml
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\System.Web.Mvc.xml
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\fr\System.Web.Razor.resources.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\fr\System.Web.Webpages.resources.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\fr\System.Web.Webpages.Deployment.resources.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\fr\System.Web.Webpages.Razor.resources.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\fr\System.Web.Helpers.resources.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\bin\fr\System.Web.Mvc.resources.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\obj\Debug\MyCoaches.csproj.CoreCompileInputs.cache
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\obj\Debug\MyCoaches.csproj.CopyComplete
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\obj\Debug\MyCoaches.dll
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\obj\Debug\MyCoaches.pdb
+G:\TDI 202\ASP.NET\MyCoaches\MyCoaches\obj\Debug\MyCoaches.csprojAssemblyReference.cache
+D:\MyCoaches\MyCoaches\bin\MyCoaches.dll.config
+D:\MyCoaches\MyCoaches\bin\MyCoaches.dll
+D:\MyCoaches\MyCoaches\bin\MyCoaches.pdb
+D:\MyCoaches\MyCoaches\bin\roslyn\csc.exe
+D:\MyCoaches\MyCoaches\bin\roslyn\csc.exe.config
+D:\MyCoaches\MyCoaches\bin\roslyn\csc.rsp
+D:\MyCoaches\MyCoaches\bin\roslyn\csi.exe
+D:\MyCoaches\MyCoaches\bin\roslyn\csi.exe.config
+D:\MyCoaches\MyCoaches\bin\roslyn\csi.rsp
+D:\MyCoaches\MyCoaches\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\MyCoaches\MyCoaches\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\Microsoft.Managed.Core.targets
+D:\MyCoaches\MyCoaches\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\MyCoaches\MyCoaches\bin\roslyn\System.AppContext.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Collections.Immutable.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Console.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.IO.Compression.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.IO.FileSystem.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.IO.Pipes.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Reflection.Metadata.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Security.AccessControl.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Security.Claims.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Security.Principal.Windows.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.ValueTuple.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Xml.XmlDocument.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Xml.XPath.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\MyCoaches\MyCoaches\bin\roslyn\vbc.exe
+D:\MyCoaches\MyCoaches\bin\roslyn\vbc.exe.config
+D:\MyCoaches\MyCoaches\bin\roslyn\vbc.rsp
+D:\MyCoaches\MyCoaches\bin\roslyn\VBCSCompiler.exe
+D:\MyCoaches\MyCoaches\bin\roslyn\VBCSCompiler.exe.config
+D:\MyCoaches\MyCoaches\bin\EntityFramework.dll
+D:\MyCoaches\MyCoaches\bin\EntityFramework.SqlServer.dll
+D:\MyCoaches\MyCoaches\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\MyCoaches\MyCoaches\bin\Microsoft.Web.Infrastructure.dll
+D:\MyCoaches\MyCoaches\bin\System.Web.Helpers.dll
+D:\MyCoaches\MyCoaches\bin\System.Web.Mvc.dll
+D:\MyCoaches\MyCoaches\bin\System.Web.Razor.dll
+D:\MyCoaches\MyCoaches\bin\System.Web.Webpages.Deployment.dll
+D:\MyCoaches\MyCoaches\bin\System.Web.Webpages.dll
+D:\MyCoaches\MyCoaches\bin\System.Web.Webpages.Razor.dll
+D:\MyCoaches\MyCoaches\bin\EntityFramework.xml
+D:\MyCoaches\MyCoaches\bin\EntityFramework.SqlServer.xml
+D:\MyCoaches\MyCoaches\bin\System.Web.Razor.xml
+D:\MyCoaches\MyCoaches\bin\System.Web.Webpages.xml
+D:\MyCoaches\MyCoaches\bin\System.Web.Webpages.Deployment.xml
+D:\MyCoaches\MyCoaches\bin\System.Web.Webpages.Razor.xml
+D:\MyCoaches\MyCoaches\bin\System.Web.Helpers.xml
+D:\MyCoaches\MyCoaches\bin\System.Web.Mvc.xml
+D:\MyCoaches\MyCoaches\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\MyCoaches\MyCoaches\bin\fr\System.Web.Razor.resources.dll
+D:\MyCoaches\MyCoaches\bin\fr\System.Web.Webpages.resources.dll
+D:\MyCoaches\MyCoaches\bin\fr\System.Web.Webpages.Deployment.resources.dll
+D:\MyCoaches\MyCoaches\bin\fr\System.Web.Webpages.Razor.resources.dll
+D:\MyCoaches\MyCoaches\bin\fr\System.Web.Helpers.resources.dll
+D:\MyCoaches\MyCoaches\bin\fr\System.Web.Mvc.resources.dll
+D:\MyCoaches\MyCoaches\obj\Debug\MyCoaches.csproj.CoreCompileInputs.cache
+D:\MyCoaches\MyCoaches\obj\Debug\MyCoaches.csproj.CopyComplete
+D:\MyCoaches\MyCoaches\obj\Debug\MyCoaches.dll
+D:\MyCoaches\MyCoaches\obj\Debug\MyCoaches.pdb
+D:\MyCoaches\MyCoaches\obj\Debug\MyCoaches.csprojAssemblyReference.cache

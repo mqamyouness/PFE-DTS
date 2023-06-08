@@ -1,0 +1,43 @@
+﻿@model MyCoaches.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DatePost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatePost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TextPost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TextPost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Choix.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Choix.Category)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

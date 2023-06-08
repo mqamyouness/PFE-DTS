@@ -1,0 +1,638 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{420F2B78-340F-4EDD-91B9-7F9B954675CF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyCoaches</RootNamespace>
+    <AssemblyName>MyCoaches</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Backend\assets\css\animate.min.css" />
+    <Content Include="Content\Backend\assets\css\bootstrap.min.css" />
+    <Content Include="Content\Backend\assets\css\demo.css" />
+    <Content Include="Content\Backend\assets\css\light-bootstrap-dashboard.css" />
+    <Content Include="Content\Backend\assets\css\pe-icon-7-stroke.css" />
+    <Content Include="Content\Backend\assets\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="Content\Backend\assets\img\default-avatar.png" />
+    <Content Include="Content\Backend\assets\img\faces\face-0.jpg" />
+    <Content Include="Content\Backend\assets\img\faces\face-1.jpg" />
+    <Content Include="Content\Backend\assets\img\faces\face-2.jpg" />
+    <Content Include="Content\Backend\assets\img\faces\face-3.jpg" />
+    <Content Include="Content\Backend\assets\img\faces\face-4.jpg" />
+    <Content Include="Content\Backend\assets\img\faces\face-5.jpg" />
+    <Content Include="Content\Backend\assets\img\faces\face-6.jpg" />
+    <Content Include="Content\Backend\assets\img\faces\face-7.jpg" />
+    <Content Include="Content\Backend\assets\img\faces\tim_vector.jpe" />
+    <Content Include="Content\Backend\assets\img\favicon.ico" />
+    <Content Include="Content\Backend\assets\img\full-screen-image-3.jpg" />
+    <Content Include="Content\Backend\assets\img\loading-bubbles.svg" />
+    <Content Include="Content\Backend\assets\img\mask.png" />
+    <Content Include="Content\Backend\assets\img\new_logo.png" />
+    <Content Include="Content\Backend\assets\img\sidebar-1.jpg" />
+    <Content Include="Content\Backend\assets\img\sidebar-2.jpg" />
+    <Content Include="Content\Backend\assets\img\sidebar-3.jpg" />
+    <Content Include="Content\Backend\assets\img\sidebar-4.jpg" />
+    <Content Include="Content\Backend\assets\img\sidebar-5.jpg" />
+    <Content Include="Content\Backend\assets\img\tim_80x80.png" />
+    <Content Include="Content\Backend\assets\js\bootstrap-notify.js" />
+    <Content Include="Content\Backend\assets\js\bootstrap-select.js" />
+    <Content Include="Content\Backend\assets\js\bootstrap.min.js" />
+    <Content Include="Content\Backend\assets\js\chartist.min.js" />
+    <Content Include="Content\Backend\assets\js\demo.js" />
+    <Content Include="Content\Backend\assets\js\jquery.3.2.1.min.js" />
+    <Content Include="Content\Backend\assets\js\light-bootstrap-dashboard.js" />
+    <Content Include="Content\Backend\main.css" />
+    <Content Include="Content\images\certified1.png" />
+    <Content Include="Content\images\certified2.png" />
+    <Content Include="Content\images\certified3.png" />
+    <Content Include="Content\images\certified4.png" />
+    <Content Include="Content\Backend\util.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\ajax-loader.gif" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\aos.css" />
+    <Content Include="Content\css\bootstrap-datepicker.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\css\css\bootstrap-reboot.css" />
+    <Content Include="Content\css\HomeStayle.css" />
+    <Content Include="Content\css\my_style.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\flaticon.css" />
+    <Content Include="Content\css\icomoon.css" />
+    <Content Include="Content\css\ionicons.min.css" />
+    <Content Include="Content\css\jquery.timepicker.css" />
+    <Content Include="Content\css\magnific-popup.css" />
+    <Content Include="Content\css\open-iconic-bootstrap.min.css" />
+    <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\owl.theme.default.min.css" />
+    <Content Include="Content\css\styleChats.css" />
+    <Content Include="Content\fonts\icomoon\icomoon.svg" />
+    <Content Include="Content\fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.svg" />
+    <Content Include="Content\images\about.jpg" />
+    <Content Include="Content\images\bg_1.jpg" />
+    <Content Include="Content\images\bg_2-1.jpg" />
+    <Content Include="Content\images\bg_2.jpg" />
+    <Content Include="Content\images\bg_4.jpg" />
+    <Content Include="Content\images\gallery-1.jpg" />
+    <Content Include="Content\images\gallery-2.jpg" />
+    <Content Include="Content\images\gallery-3.jpg" />
+    <Content Include="Content\images\gallery-4.jpg" />
+    <Content Include="Content\images\image_1.jpg" />
+    <Content Include="Content\images\image_10.jpg" />
+    <Content Include="Content\images\image_2.jpg" />
+    <Content Include="Content\images\image_3.jpg" />
+    <Content Include="Content\images\image_4.jpg" />
+    <Content Include="Content\images\image_5.jpg" />
+    <Content Include="Content\images\image_6.jpg" />
+    <Content Include="Content\images\image_7.jpg" />
+    <Content Include="Content\images\image_8.jpg" />
+    <Content Include="Content\images\image_9.jpg" />
+    <Content Include="Content\images\loc.png" />
+    <Content Include="Content\images\logo-bg.jpg" />
+    <Content Include="Content\images\person_0.jpg" />
+    <Content Include="Content\images\person_1.jpg" />
+    <Content Include="Content\images\person_2.jpg" />
+    <Content Include="Content\images\person_3.jpg" />
+    <Content Include="Content\images\person_4.jpg" />
+    <Content Include="Content\images\program-1.jpg" />
+    <Content Include="Content\images\program-2.jpg" />
+    <Content Include="Content\images\trainer-1.jpg" />
+    <Content Include="Content\images\trainer-2.jpg" />
+    <Content Include="Content\images\trainer-3.jpg" />
+    <Content Include="Content\images\trainer-4.jpg" />
+    <Content Include="Content\images\unnamed.jpg" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <EntityDeploy Include="Models\databasePFF.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>databasePFF.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\databasePFF.edmx.diagram">
+      <DependentUpon>databasePFF.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\Backend\assets\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Content\Backend\assets\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="Content\Backend\assets\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_buttons.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_cards.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_chartist.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_icons.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_inputs.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_labels.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_morphing-buttons.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_navbars.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_social-buttons.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_tabs.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_transparency.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\mixins\_vendor-prefixes.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_alerts.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_buttons.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_cards.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_chartist.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_checkbox-radio-switch.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_dropdown.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_footers.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_inputs.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_misc.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_mixins.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_navbars.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_responsive.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_sidebar-and-main-panel.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_tables.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_typography.scss" />
+    <Content Include="Content\Backend\assets\sass\lbd\_variables.scss" />
+    <Content Include="Content\Backend\assets\sass\light-bootstrap-dashboard.scss" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Models\databasePFF.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>databasePFF.edmx</DependentUpon>
+      <LastGenOutput>databasePFF.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\databasePFF.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>databasePFF.edmx</DependentUpon>
+      <LastGenOutput>databasePFF.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\Ajax.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\aos.js" />
+    <Content Include="Scripts\BackendJS.js" />
+    <Content Include="Scripts\js\bootstrap-datepicker.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
+    <Content Include="Scripts\js\google-map.js" />
+    <Content Include="Scripts\HomeJs.js" />
+    <Content Include="Scripts\js\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\js\jquery-migrate-3.0.1.min.js" />
+    <Content Include="Scripts\js\jquery.animateNumber.min.js" />
+    <Content Include="Scripts\js\jquery.easing.1.3.js" />
+    <Content Include="Scripts\js\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\js\jquery.min.js" />
+    <Content Include="Scripts\js\jquery.stellar.min.js" />
+    <Content Include="Scripts\js\jquery.timepicker.min.js" />
+    <Content Include="Scripts\js\jquery.waypoints.min.js" />
+    <Content Include="Scripts\js\main.js" />
+    <Content Include="Scripts\js\owl.carousel.min.js" />
+    <Content Include="Scripts\js\popper.min.js" />
+    <Content Include="Scripts\js\range.js" />
+    <Content Include="Scripts\js\responsiv.js" />
+    <Content Include="Scripts\js\scrollax.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\Backend\AbonnementsController.cs" />
+    <Compile Include="Controllers\Backend\AdminBackendsController.cs" />
+    <Compile Include="Controllers\Backend\ChoixesController.cs" />
+    <Compile Include="Controllers\Backend\DashboardController.cs" />
+    <Compile Include="Controllers\Backend\EntraineursController.cs" />
+    <Compile Include="Controllers\Backend\LinkPostsController.cs" />
+    <Compile Include="Controllers\Backend\LoginController.cs" />
+    <Compile Include="Controllers\Backend\PaiementsController.cs" />
+    <Compile Include="Controllers\Backend\PersonnesController.cs" />
+    <Compile Include="Controllers\Backend\PostsBackController.cs" />
+    <Compile Include="Controllers\Backend\SportsBackendController.cs" />
+    <Compile Include="Controllers\Backend\UtilisateursController.cs" />
+    <Compile Include="Controllers\Backend\WhatPeopleSaysController.cs" />
+    <Compile Include="Controllers\ChatsController.cs" />
+    <Compile Include="Controllers\CoachesController.cs" />
+    <Compile Include="Controllers\ConnectController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
+    <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Controllers\SportsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Abonnement.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminBackend.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Carte.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Choix.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Commentaire.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\databasePFF.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>databasePFF.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\databasePFF.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\databasePFF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>databasePFF.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entraineur.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EnvoyePar.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Evaluation.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LinkCertification.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LinkPost.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MessageEnv.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\notification.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Paiement.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Personne.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Post.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reponse.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\reseauxSociaux.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sport.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Utilisateur.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WhatPeopleSay.cs">
+      <DependentUpon>databasePFF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Content\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Content\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Content\scss\bootstrap\_alert.scss" />
+    <Content Include="Content\scss\bootstrap\_badge.scss" />
+    <Content Include="Content\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Content\scss\bootstrap\_button-group.scss" />
+    <Content Include="Content\scss\bootstrap\_buttons.scss" />
+    <Content Include="Content\scss\bootstrap\_card.scss" />
+    <Content Include="Content\scss\bootstrap\_carousel.scss" />
+    <Content Include="Content\scss\bootstrap\_close.scss" />
+    <Content Include="Content\scss\bootstrap\_code.scss" />
+    <Content Include="Content\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Content\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Content\scss\bootstrap\_forms.scss" />
+    <Content Include="Content\scss\bootstrap\_functions.scss" />
+    <Content Include="Content\scss\bootstrap\_grid.scss" />
+    <Content Include="Content\scss\bootstrap\_images.scss" />
+    <Content Include="Content\scss\bootstrap\_input-group.scss" />
+    <Content Include="Content\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Content\scss\bootstrap\_list-group.scss" />
+    <Content Include="Content\scss\bootstrap\_media.scss" />
+    <Content Include="Content\scss\bootstrap\_mixins.scss" />
+    <Content Include="Content\scss\bootstrap\_modal.scss" />
+    <Content Include="Content\scss\bootstrap\_nav.scss" />
+    <Content Include="Content\scss\bootstrap\_navbar.scss" />
+    <Content Include="Content\scss\bootstrap\_pagination.scss" />
+    <Content Include="Content\scss\bootstrap\_popover.scss" />
+    <Content Include="Content\scss\bootstrap\_print.scss" />
+    <Content Include="Content\scss\bootstrap\_progress.scss" />
+    <Content Include="Content\scss\bootstrap\_reboot.scss" />
+    <Content Include="Content\scss\bootstrap\_root.scss" />
+    <Content Include="Content\scss\bootstrap\_tables.scss" />
+    <Content Include="Content\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Content\scss\bootstrap\_transitions.scss" />
+    <Content Include="Content\scss\bootstrap\_type.scss" />
+    <Content Include="Content\scss\bootstrap\_utilities.scss" />
+    <Content Include="Content\scss\bootstrap\_variables.scss" />
+    <Content Include="Content\scss\style.scss" />
+    <Content Include="Content\fonts\icomoon\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon\icomoon.woff" />
+    <Content Include="Content\fonts\ionicons\css\_ionicons.scss" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.woff2" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.eot" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.otf" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.ttf" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.woff" />
+    <Content Include="Content\fonts\icomoon.eot" />
+    <None Include="packages.config" />
+    <Content Include="Views\_LayoutFrontend.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Partiels\Reaction.cshtml" />
+    <Content Include="Views\Contact\SectionInputContact.cshtml" />
+    <Content Include="Views\Coaches\Index.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\Posts\DetailsPost.cshtml" />
+    <Content Include="Views\Partiels\menu_1.cshtml" />
+    <Content Include="Views\Partiels\menu_2.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Partiels\BestSports.cshtml" />
+    <Content Include="Views\Profiles\Index.cshtml" />
+    <Content Include="Views\Connect\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\_Layout.cshtml" />
+    <Content Include="Views\Personnes\Create.cshtml" />
+    <Content Include="Views\Personnes\Delete.cshtml" />
+    <Content Include="Views\Personnes\Details.cshtml" />
+    <Content Include="Views\Personnes\Edit.cshtml" />
+    <Content Include="Views\Personnes\Index.cshtml" />
+    <Content Include="Views\Entraineurs\Create.cshtml" />
+    <Content Include="Views\Entraineurs\Delete.cshtml" />
+    <Content Include="Views\Entraineurs\Details.cshtml" />
+    <Content Include="Views\Entraineurs\Edit.cshtml" />
+    <Content Include="Views\Entraineurs\Index.cshtml" />
+    <Content Include="Views\LinkPosts\Create.cshtml" />
+    <Content Include="Views\LinkPosts\Delete.cshtml" />
+    <Content Include="Views\LinkPosts\Details.cshtml" />
+    <Content Include="Views\LinkPosts\Edit.cshtml" />
+    <Content Include="Views\LinkPosts\Index.cshtml" />
+    <Content Include="Views\PostsBack\Create.cshtml" />
+    <Content Include="Views\PostsBack\Delete.cshtml" />
+    <Content Include="Views\PostsBack\Details.cshtml" />
+    <Content Include="Views\PostsBack\Edit.cshtml" />
+    <Content Include="Views\PostsBack\Index.cshtml" />
+    <Content Include="Views\Chats\Index.cshtml" />
+    <Content Include="Views\Sports\Join.cshtml" />
+    <Content Include="Views\Posts\Comments.cshtml" />
+    <Content Include="Views\Posts\Evaluation.cshtml" />
+    <Content Include="Views\Posts\minPost.cshtml" />
+    <Content Include="Views\Coaches\coaches.cshtml" />
+    <Content Include="Views\Sports\choix.cshtml" />
+    <Content Include="Views\Chats\Messages.cshtml" />
+    <Content Include="Views\Chats\Contact.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Utilisateurs\Create.cshtml" />
+    <Content Include="Views\Utilisateurs\Delete.cshtml" />
+    <Content Include="Views\Utilisateurs\Details.cshtml" />
+    <Content Include="Views\Utilisateurs\Edit.cshtml" />
+    <Content Include="Views\Utilisateurs\Index.cshtml" />
+    <Content Include="Views\Choixes\Create.cshtml" />
+    <Content Include="Views\Choixes\Delete.cshtml" />
+    <Content Include="Views\Choixes\Details.cshtml" />
+    <Content Include="Views\Choixes\Edit.cshtml" />
+    <Content Include="Views\Choixes\Index.cshtml" />
+    <Content Include="Views\Sports\Index.cshtml" />
+    <Content Include="Views\Abonnements\Create.cshtml" />
+    <Content Include="Views\Abonnements\Delete.cshtml" />
+    <Content Include="Views\Abonnements\Details.cshtml" />
+    <Content Include="Views\Abonnements\Edit.cshtml" />
+    <Content Include="Views\Abonnements\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\SportsBackend\Create.cshtml" />
+    <Content Include="Views\SportsBackend\Delete.cshtml" />
+    <Content Include="Views\SportsBackend\Details.cshtml" />
+    <Content Include="Views\SportsBackend\Edit.cshtml" />
+    <Content Include="Views\SportsBackend\Index.cshtml" />
+    <Content Include="Views\Partiels\WhatPeopleSay.cshtml" />
+    <Content Include="Views\AdminBackends\Create.cshtml" />
+    <Content Include="Views\AdminBackends\Delete.cshtml" />
+    <Content Include="Views\AdminBackends\Details.cshtml" />
+    <Content Include="Views\AdminBackends\Edit.cshtml" />
+    <Content Include="Views\AdminBackends\Index.cshtml" />
+    <Content Include="Views\WhatPeopleSays\Create.cshtml" />
+    <Content Include="Views\WhatPeopleSays\Delete.cshtml" />
+    <Content Include="Views\WhatPeopleSays\Details.cshtml" />
+    <Content Include="Views\WhatPeopleSays\Edit.cshtml" />
+    <Content Include="Views\WhatPeopleSays\Index.cshtml" />
+    <Content Include="Views\PartielsBackend\Filter.cshtml" />
+    <Content Include="Views\Connect\confirmed.cshtml" />
+    <Content Include="Views\Paiements\Create.cshtml" />
+    <Content Include="Views\Paiements\Delete.cshtml" />
+    <Content Include="Views\Paiements\Details.cshtml" />
+    <Content Include="Views\Paiements\Edit.cshtml" />
+    <Content Include="Views\Paiements\Index.cshtml" />
+    <Content Include="Views\Profiles\Coache.cshtml" />
+    <Content Include="Views\Error\PageNotFound.cshtml" />
+    <Content Include="Views\Profiles\client.cshtml" />
+    <Content Include="Views\Profiles\updateProfileUser.cshtml" />
+    <Content Include="Views\Profiles\updateProfileCoache.cshtml" />
+    <Content Include="Views\Home\Logout.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64455</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:64455/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

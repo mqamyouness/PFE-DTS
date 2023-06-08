@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Join";
+    Layout = "~/Views/_LayoutFrontend.cshtml";
+}
+<section class="ftco-section" id="SectionChoix">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-10 heading-section text-center ftco-animate">
+                <span class="subheading">
+                    <i class="db-left"></i>
+                    Joining
+                    <i class="db-right"></i>
+                </span>
+                <h2 class="mb-3">Our Sports</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Rows Show Sports-->
+            @{
+                var sports = (List<MyCoaches.Models.Choix>)ViewData["sports"];
+                <div class="col-md-4">
+                    <div class="pricing-wrap img" style="background-image: url(/Content/images/@sports[0].img);">
+                        <div class="title p-4">
+                            <h3>@sports[0].Entraineur.Personne.Nom &nbsp; @sports[0].Entraineur.Personne.Prenom</h3>
+                            <span>@(sports[0].Sport.Libelle)</span>
+                        </div>
+                        <div class="text p-4 d-flex align-items-end">
+                            <a class="btn-custom px-4 py-2">Join Now</a>
+                            <div>
+                                <span class="price">$@sports[0].AbonnemetPrix</span>
+                                <h3>@sports[0].Entraineur.Personne.Nom &nbsp; @sports[0].Entraineur.Personne.Prenom</h3>
+                                <p>@sports[0].textPub</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+                <div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="6SJZZ86F7M3JS">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
+            <!--End Rows Show Sports-->
+        </div>
+    </div>
+</section>
+

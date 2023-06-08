@@ -1,0 +1,23 @@
+﻿@{
+    var comentaire = (List<MyCoaches.Models.Commentaire>)ViewData["commentaire"];
+    var reponse = (List<MyCoaches.Models.Reponse>)ViewData["reponse"];
+    var post = (List<MyCoaches.Models.Post>)ViewData["post"];
+}
+<div class="tagcloud" id="react">
+    <button type="button" class="btn btn-outline-danger" id="like"><i class="fa fa-thumbs-up"></i>&nbsp;( @(post[0].Evaluations.Where(ev => ev.Evaluation1 == true).Count()) )</button>
+    <button type="button" class="btn btn-outline-danger" id="dislike"><i class="fa fa-thumbs-down"></i>&nbsp;(  @(post[0].Evaluations.Where(ev => ev.Evaluation1 == false).Count()) )</button>
+    <button type="button" class="btn btn-outline-danger" id="btncomments"><i class="fa fa-comments"></i>&nbsp;( @(comentaire.Count() + reponse.Count()) )</button>
+    <script>
+        if (@(post[0].Evaluations.Where(ev => ev.Evaluation1 == true && ev.C_idPersonne == (Int32)Session["user"]).Count())> 0) {
+            document.getElementById("like").classList.remove("btn-outline-danger");
+            document.getElementById("like").classList.add("btn-danger");
+        }
+        else
+        if (@(post[0].Evaluations.Where(ev => ev.Evaluation1 == false && ev.C_idPersonne == (Int32)Session["user"]).Count())> 0) {
+            document.getElementById("dislike").classList.remove("btn-outline-danger");
+            document.getElementById("dislike").classList.add("btn-danger");
+
+        }
+    </script>
+</div>
+

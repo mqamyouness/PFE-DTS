@@ -1,0 +1,145 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Coaches</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/animate.css">
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Content/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Content/css/aos.css">
+    <link rel="stylesheet" href="~/Content/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Content/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="~/Content/css/flaticon.css">
+    <link rel="stylesheet" href="~/Content/css/icomoon.css">
+    <link rel="stylesheet" href="~/Content/css/my_style.css" />
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/css/HomeStayle.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="~/Home">My Coaches</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+
+                    @{
+                        string controllerValue = ViewContext.RouteData.Values["controller"].ToString();
+                        if (Session["user"] == null)
+                        {
+                            Html.RenderPartial("../Partiels/menu_1");
+                        }
+                        else
+                        {
+                            Html.RenderPartial("../Partiels/menu_2");
+                        }
+                    }
+                    <script>document.getElementById("@controllerValue").classList.add("active");</script>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+    @RenderBody()
+
+    <footer class="ftco-footer ftco-section img">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">About Us</h2>
+                        <p>
+                            MY coaches is an online booking platform for sports coaches in Morroco. Our Service allows you to book in less than 2 minutes a sports coach .
+                        </p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">sponsors</h2>
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url(https://cdn.muscleandstrength.com/images/logo.png);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="https://www.muscleandstrength.com/">Nutrition supplements</a></h3>
+                                <div class="meta">
+                                    <div><a href="https://www.muscleandstrength.com/"><span class="icon-work"></span>Muscleandstrength</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url(https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/042011/on.png?itok=FK5gr-_z);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="https://www.optimumnutrition.fr/">Nutrition supplements</a></h3>
+                                <div class="meta">
+                                    <div><a href="https://www.optimumnutrition.fr/"><span class="icon-person"></span>Optimumnutrition</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-5">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Sports</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">Sport name 1</a></li>
+                            <li><a href="#" class="py-2 d-block">Sport name 2</a></li>
+                            <li><a href="#" class="py-2 d-block">Sport name 3</a></li>
+                            <li><a href="#" class="py-2 d-block">Sport name 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span></span><span class="text">We’re here to help and answer any question you might have. We look forward to hearing from you :</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+0000 000 000</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+    <script src="~/Scripts/js/jquery.min.js"></script>
+    <script src="~/Scripts/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Scripts/js/popper.min.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/js/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/js/jquery.stellar.min.js"></script>
+    <script src="~/Scripts/js/owl.carousel.min.js"></script>
+    <script src="~/Scripts/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/js/aos.js"></script>
+    <script src="~/Scripts/js/jquery.animateNumber.min.js"></script>
+    <script src="~/Scripts/js/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/js/jquery.timepicker.min.js"></script>
+    <script src="~/Scripts/js/scrollax.min.js"></script>
+    <script src="~/Scripts/js/responsiv.js"></script>
+    <script src="~/Scripts/js/main.js"></script>
+    <script src="~/Scripts/Ajax.js"></script>
+    <script src="~/Scripts/HomeJs.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+</body>
+</html>

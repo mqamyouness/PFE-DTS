@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="026cd8238d044f4fa750fc81c9e93868" Name="Diagram1">
+        <EntityTypeShape EntityType="PFEModel.Carte" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.Commentaire" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.Entraineur" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.LinkCertification" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.LinkPost" Width="1.5" PointX="9.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.MessageEnv" Width="1.5" PointX="7.125" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.notification" Width="1.5" PointX="9.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.Paiement" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.Personne" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.Post" Width="1.5" PointX="7.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.Reponse" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.Sport" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.Utilisateur" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFEModel.WhatPeopleSay" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <AssociationConnector Association="PFEModel.FK__Carte___idPerson__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__Commentai___idPe__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__Commentai___idPo__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__Reponse___idComm__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__Entraineu___idPe__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__LinkCerti___idEn__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__Paiement___idEnt__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__LinkPost___idPos__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__notificat___idPe__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__notificat___idPo__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__Reponse___idPeso__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__Utilisate___idPe__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="PFEModel.FK__WhatPeopl___idPe__6754599E" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PFEModel.reseauxSociaux" Width="1.5" PointX="3" PointY="23.875" />
+        <AssociationConnector Association="PFEModel.FK__reseauxSo___idPe__6FE99F9F" />
+        <EntityTypeShape EntityType="PFEModel.Abonnement" Width="1.5" PointX="7.5" PointY="17.25" />
+        <AssociationConnector Association="PFEModel.FK__Abonnemen___idUt__0A9D95DB" />
+        <EntityTypeShape EntityType="PFEModel.EnvoyePar" Width="1.5" PointX="12.125" PointY="7.75" />
+        <AssociationConnector Association="PFEModel.FK__EnvoyePar___idEn__160F4887" />
+        <AssociationConnector Association="PFEModel.FK__EnvoyePar___idMe__17F790F9" />
+        <AssociationConnector Association="PFEModel.FK__EnvoyePar___idUt__17036CC0" />
+        <EntityTypeShape EntityType="PFEModel.Evaluation" Width="1.5" PointX="12.75" PointY="12.125" />
+        <AssociationConnector Association="PFEModel.FK__Evaluatio___idPe__1DB06A4F" />
+        <AssociationConnector Association="PFEModel.FK__Evaluatio___idPo__1CBC4616" />
+        <EntityTypeShape EntityType="PFEModel.Choix" Width="1.5" PointX="10.25" PointY="3.5" />
+        <AssociationConnector Association="PFEModel.FK__Abonnemen___idCh__2180FB33" />
+        <AssociationConnector Association="PFEModel.FK__Choix___idEntrai__5070F446" />
+        <AssociationConnector Association="PFEModel.FK__Choix___idSport__5165187F" />
+        <AssociationConnector Association="PFEModel.FK__Post___idChoisez__571DF1D5" />
+        <EntityTypeShape EntityType="PFEModel.AdminBackend" Width="1.5" PointX="2.75" PointY="0.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutFrontend.cshtml";
+}
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">
+                    <i class="db-left"></i>
+                    Read Posts
+                    <i class="db-right"></i>
+                </span>
+                <h2 class="mb-3">Recent Posts</h2>
+                <p>Our Coaches Lastest Posts</p>
+            </div>
+        </div>
+        <div class="row d-flex">
+            <!--Rows Post Show-->
+            @{
+                var posts = (List<MyCoaches.Models.Post>)ViewData["Posts"];
+                int i = 0;
+                foreach (var item in posts)
+                {
+                    string displayValue = "block";
+                    i++;
+                    if (i > 9)
+                    {
+                        displayValue = "none";
+                    }
+
+                    <div class="col-lg-4 ftco-animate count_item" style="display:@displayValue">
+                        <div class="blog-entry align-self-stretch">
+                            <a href="~/Posts/DetailsPost/@item.id" class="block-20" style="background-image: url('/Content/images/@item.LinkPosts.First().Link');">
+                            </a>
+                            <div class="text py-4 d-flex">
+                                <div class="meta text-center">
+                                    <span class="day">@item.DatePost.Value.Day</span>
+                                    <span class="mos">@{ System.Globalization.CultureInfo info = new System.Globalization.CultureInfo("en-US"); var m = info.DateTimeFormat.GetMonthName(item.DatePost.Value.Month); }@(m)</span>
+                                    <span class="yr">@item.DatePost.Value.Year</span>
+                                </div>
+                                <div class="desc">
+                                    <h3 class="heading mt-2"><a href="~/Posts/DetailsPost/Post=@item.id">@item.Titer</a></h3>
+                                    <p>@item.Subjects</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            <!-- End Rows Post Show-->
+        </div>
+        <div class="row mt-5" id="navig" style="display:none;">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul id="navbarNum">
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            if (document.querySelectorAll('.count_item').length > 9) {
+                document.getElementById("navig").style.display = "block";
+                var number = document.querySelectorAll('.count_item').length;
+                var count = 0;
+                var text = "<li><a class='clickNavPost' style='cursor: pointer;font-size:24px;'  val='prs'>&lt;</a></li>&nbsp;";
+                if ((number % 9) == 0) {
+                    count = number / 9;
+                } else {
+                    count = Math.floor(number / 9) + 1;
+                }
+                for (var i = 1; i <= count; i++) {
+
+                    if(i==1)
+                        text += '<li class="active"><a class="clickNavPost" style="cursor:pointer;font-size:24px;" val=' + i + '><span>' + i + '</span></a></li>&nbsp;';
+                    else
+                        text += '<li><a class="clickNavPost" style="cursor:pointer;font-size:24px;" val=' + i + '><span>' + i + '</span></a></li>&nbsp;';
+                }
+                text += "<li><a class='clickNavPost' style='cursor: pointer;font-size:24px;' val='suv'>&gt;</a></li>";
+                document.getElementById("navbarNum").innerHTML = text;
+                var tour = 1;
+            }
+
+        </script>
+    </div>
+</section>

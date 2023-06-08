@@ -1,0 +1,1532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PFEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Abonnement">
+          <Key>
+            <PropertyRef Name="#idChoisez" />
+            <PropertyRef Name="#idUtilisateur" />
+          </Key>
+          <Property Name="#idChoisez" Type="int" Nullable="false" />
+          <Property Name="#idUtilisateur" Type="int" Nullable="false" />
+          <Property Name="DateDub" Type="date" />
+          <Property Name="DateFin" Type="date" />
+          <Property Name="Peroide" Type="int" />
+          <Property Name="autoReview" Type="bit" />
+        </EntityType>
+        <EntityType Name="AdminBackend">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="255" />
+          <Property Name="Prenom" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="gestionDesAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carte">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdresseWeb" Type="varchar" MaxLength="255" />
+          <Property Name="NumeroCarte" Type="varchar" MaxLength="255" />
+          <Property Name="DateFin" Type="date" />
+          <Property Name="CVC" Type="varchar" MaxLength="3" />
+          <Property Name="#idPersonne" Type="int" />
+        </EntityType>
+        <EntityType Name="Choix">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="#idEntraineur" Type="int" />
+          <Property Name="#idSport" Type="int" />
+          <Property Name="Category" Type="varchar" MaxLength="255" />
+          <Property Name="TypeEntrainment" Type="varchar" MaxLength="255" />
+          <Property Name="AbonnemetPrix" Type="money" />
+          <Property Name="textPub" Type="varchar" MaxLength="255" />
+          <Property Name="img" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Commentaire">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateComnt" Type="datetime" />
+          <Property Name="TextComnt" Type="text" />
+          <Property Name="#idPost" Type="int" />
+          <Property Name="#idPersonne" Type="int" />
+        </EntityType>
+        <EntityType Name="Entraineur">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Evaluation" Type="int" />
+          <Property Name="Experience" Type="int" />
+          <Property Name="DateDub" Type="date" />
+          <Property Name="#idPersonne" Type="int" />
+        </EntityType>
+        <EntityType Name="EnvoyePar">
+          <Key>
+            <PropertyRef Name="#idEntraineur" />
+            <PropertyRef Name="#idUtilisateur" />
+            <PropertyRef Name="#idMessage" />
+          </Key>
+          <Property Name="#idEntraineur" Type="int" Nullable="false" />
+          <Property Name="#idUtilisateur" Type="int" Nullable="false" />
+          <Property Name="#idMessage" Type="int" Nullable="false" />
+          <Property Name="Deriction" Type="bit" />
+        </EntityType>
+        <EntityType Name="Evaluation">
+          <Key>
+            <PropertyRef Name="#idPost" />
+            <PropertyRef Name="#idPersonne" />
+          </Key>
+          <Property Name="#idPost" Type="int" Nullable="false" />
+          <Property Name="#idPersonne" Type="int" Nullable="false" />
+          <Property Name="Evaluation" Type="bit" />
+        </EntityType>
+        <EntityType Name="LinkCertification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Link" Type="varchar" MaxLength="255" />
+          <Property Name="TextCRF" Type="varchar" MaxLength="255" />
+          <Property Name="#idEntraineur" Type="int" />
+        </EntityType>
+        <EntityType Name="LinkPost">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Link" Type="varchar" MaxLength="255" />
+          <Property Name="TextLinkPost" Type="text" />
+          <Property Name="#idPost" Type="int" />
+        </EntityType>
+        <EntityType Name="MessageEnv">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateEnv" Type="datetime" />
+          <Property Name="TextMessage" Type="text" />
+          <Property Name="Lnik" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="notifications">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="#idPersonne" Type="int" />
+          <Property Name="#idPost" Type="int" />
+          <Property Name="Vue" Type="bit" />
+          <Property Name="typeNtif" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Paiement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Montant" Type="money" />
+          <Property Name="Datep" Type="datetime" />
+          <Property Name="#idEntraineur" Type="int" />
+        </EntityType>
+        <EntityType Name="Personne">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="255" />
+          <Property Name="Prenom" Type="varchar" MaxLength="255" />
+          <Property Name="Sexe" Type="varchar" MaxLength="255" />
+          <Property Name="DateNc" Type="date" />
+          <Property Name="Telephone" Type="varchar" MaxLength="255" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Username" Type="varchar" MaxLength="255" />
+          <Property Name="MotsdePass" Type="varchar" MaxLength="255" />
+          <Property Name="Photoprofile" Type="varchar" MaxLength="255" />
+          <Property Name="ValidationChomp" Type="bit" />
+          <Property Name="TextValidation" Type="varchar" MaxLength="255" />
+          <Property Name="Argent" Type="money" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DatePost" Type="datetime" />
+          <Property Name="Titer" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Subjects" Type="varchar" MaxLength="255" />
+          <Property Name="TextPost" Type="text" />
+          <Property Name="#idChoisez" Type="int" />
+        </EntityType>
+        <EntityType Name="Reponse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateRpnd" Type="datetime" />
+          <Property Name="TextRpnd" Type="text" />
+          <Property Name="#idCommentaire" Type="int" />
+          <Property Name="#idPesonne" Type="int" />
+        </EntityType>
+        <EntityType Name="reseauxSociaux">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lnik" Type="varchar" MaxLength="255" />
+          <Property Name="nameRs" Type="varchar" MaxLength="255" />
+          <Property Name="#idPersonne" Type="int" />
+        </EntityType>
+        <EntityType Name="Sport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="#idPersonne" Type="int" />
+        </EntityType>
+        <EntityType Name="WhatPeopleSay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TextSay" Type="text" />
+          <Property Name="#idPesonne" Type="int" />
+          <Property Name="show" Type="bit" />
+        </EntityType>
+        <Association Name="FK__Abonnemen__#idCh__2180FB33">
+          <End Role="Choix" Type="Self.Choix" Multiplicity="1" />
+          <End Role="Abonnement" Type="Self.Abonnement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Choix">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Abonnement">
+              <PropertyRef Name="#idChoisez" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonnemen__#idUt__22751F6C">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="Abonnement" Type="Self.Abonnement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Abonnement">
+              <PropertyRef Name="#idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carte__#idPerson__398D8EEE">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="Carte" Type="Self.Carte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Carte">
+              <PropertyRef Name="#idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Choix__#idEntrai__5070F446">
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="0..1" />
+          <End Role="Choix" Type="Self.Choix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entraineur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Choix">
+              <PropertyRef Name="#idEntraineur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Choix__#idSport__5165187F">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="0..1" />
+          <End Role="Choix" Type="Self.Choix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Choix">
+              <PropertyRef Name="#idSport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commentai__#idPe__60A75C0F">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="Commentaire" Type="Self.Commentaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Commentaire">
+              <PropertyRef Name="#idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commentai__#idPo__5FB337D6">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Commentaire" Type="Self.Commentaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Commentaire">
+              <PropertyRef Name="#idPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Entraineu__#idPe__3F466844">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Entraineur">
+              <PropertyRef Name="#idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EnvoyePar__#idEn__160F4887">
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="1" />
+          <End Role="EnvoyePar" Type="Self.EnvoyePar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entraineur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EnvoyePar">
+              <PropertyRef Name="#idEntraineur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EnvoyePar__#idMe__17F790F9">
+          <End Role="MessageEnv" Type="Self.MessageEnv" Multiplicity="1" />
+          <End Role="EnvoyePar" Type="Self.EnvoyePar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageEnv">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EnvoyePar">
+              <PropertyRef Name="#idMessage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EnvoyePar__#idUt__17036CC0">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="EnvoyePar" Type="Self.EnvoyePar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EnvoyePar">
+              <PropertyRef Name="#idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Evaluatio__#idPe__1DB06A4F">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="#idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Evaluatio__#idPo__1CBC4616">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="#idPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LinkCerti__#idEn__4222D4EF">
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="0..1" />
+          <End Role="LinkCertification" Type="Self.LinkCertification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entraineur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LinkCertification">
+              <PropertyRef Name="#idEntraineur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LinkPost__#idPos__59FA5E80">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="LinkPost" Type="Self.LinkPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LinkPost">
+              <PropertyRef Name="#idPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__notificat__#idPe__6A30C649">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="notifications" Type="Self.notifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="notifications">
+              <PropertyRef Name="#idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__notificat__#idPo__6B24EA82">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="notifications" Type="Self.notifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="notifications">
+              <PropertyRef Name="#idPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Paiement__#idEnt__44FF419A">
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="0..1" />
+          <End Role="Paiement" Type="Self.Paiement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entraineur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Paiement">
+              <PropertyRef Name="#idEntraineur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Post__#idChoisez__571DF1D5">
+          <End Role="Choix" Type="Self.Choix" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Choix">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="#idChoisez" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reponse__#idComm__6383C8BA">
+          <End Role="Commentaire" Type="Self.Commentaire" Multiplicity="0..1" />
+          <End Role="Reponse" Type="Self.Reponse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commentaire">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reponse">
+              <PropertyRef Name="#idCommentaire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reponse__#idPeso__6477ECF3">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="Reponse" Type="Self.Reponse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reponse">
+              <PropertyRef Name="#idPesonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reseauxSo__#idPe__6FE99F9F">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="reseauxSociaux" Type="Self.reseauxSociaux" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reseauxSociaux">
+              <PropertyRef Name="#idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utilisate__#idPe__3C69FB99">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="#idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WhatPeopl__#idPe__6754599E">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="WhatPeopleSay" Type="Self.WhatPeopleSay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="WhatPeopleSay">
+              <PropertyRef Name="#idPesonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PFEModelStoreContainer">
+          <EntitySet Name="Abonnement" EntityType="Self.Abonnement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminBackend" EntityType="Self.AdminBackend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carte" EntityType="Self.Carte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Choix" EntityType="Self.Choix" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commentaire" EntityType="Self.Commentaire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entraineur" EntityType="Self.Entraineur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EnvoyePar" EntityType="Self.EnvoyePar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evaluation" EntityType="Self.Evaluation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LinkCertification" EntityType="Self.LinkCertification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LinkPost" EntityType="Self.LinkPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MessageEnv" EntityType="Self.MessageEnv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notifications" EntityType="Self.notifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paiement" EntityType="Self.Paiement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personne" EntityType="Self.Personne" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reponse" EntityType="Self.Reponse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reseauxSociaux" EntityType="Self.reseauxSociaux" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sport" EntityType="Self.Sport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WhatPeopleSay" EntityType="Self.WhatPeopleSay" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Abonnemen__#idCh__2180FB33" Association="Self.FK__Abonnemen__#idCh__2180FB33">
+            <End Role="Choix" EntitySet="Choix" />
+            <End Role="Abonnement" EntitySet="Abonnement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonnemen__#idUt__22751F6C" Association="Self.FK__Abonnemen__#idUt__22751F6C">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Abonnement" EntitySet="Abonnement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carte__#idPerson__398D8EEE" Association="Self.FK__Carte__#idPerson__398D8EEE">
+            <End Role="Personne" EntitySet="Personne" />
+            <End Role="Carte" EntitySet="Carte" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Choix__#idEntrai__5070F446" Association="Self.FK__Choix__#idEntrai__5070F446">
+            <End Role="Entraineur" EntitySet="Entraineur" />
+            <End Role="Choix" EntitySet="Choix" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Choix__#idSport__5165187F" Association="Self.FK__Choix__#idSport__5165187F">
+            <End Role="Sport" EntitySet="Sport" />
+            <End Role="Choix" EntitySet="Choix" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commentai__#idPe__60A75C0F" Association="Self.FK__Commentai__#idPe__60A75C0F">
+            <End Role="Personne" EntitySet="Personne" />
+            <End Role="Commentaire" EntitySet="Commentaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commentai__#idPo__5FB337D6" Association="Self.FK__Commentai__#idPo__5FB337D6">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Commentaire" EntitySet="Commentaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Entraineu__#idPe__3F466844" Association="Self.FK__Entraineu__#idPe__3F466844">
+            <End Role="Personne" EntitySet="Personne" />
+            <End Role="Entraineur" EntitySet="Entraineur" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EnvoyePar__#idEn__160F4887" Association="Self.FK__EnvoyePar__#idEn__160F4887">
+            <End Role="Entraineur" EntitySet="Entraineur" />
+            <End Role="EnvoyePar" EntitySet="EnvoyePar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EnvoyePar__#idMe__17F790F9" Association="Self.FK__EnvoyePar__#idMe__17F790F9">
+            <End Role="MessageEnv" EntitySet="MessageEnv" />
+            <End Role="EnvoyePar" EntitySet="EnvoyePar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EnvoyePar__#idUt__17036CC0" Association="Self.FK__EnvoyePar__#idUt__17036CC0">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="EnvoyePar" EntitySet="EnvoyePar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Evaluatio__#idPe__1DB06A4F" Association="Self.FK__Evaluatio__#idPe__1DB06A4F">
+            <End Role="Personne" EntitySet="Personne" />
+            <End Role="Evaluation" EntitySet="Evaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Evaluatio__#idPo__1CBC4616" Association="Self.FK__Evaluatio__#idPo__1CBC4616">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Evaluation" EntitySet="Evaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LinkCerti__#idEn__4222D4EF" Association="Self.FK__LinkCerti__#idEn__4222D4EF">
+            <End Role="Entraineur" EntitySet="Entraineur" />
+            <End Role="LinkCertification" EntitySet="LinkCertification" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LinkPost__#idPos__59FA5E80" Association="Self.FK__LinkPost__#idPos__59FA5E80">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="LinkPost" EntitySet="LinkPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK__notificat__#idPe__6A30C649" Association="Self.FK__notificat__#idPe__6A30C649">
+            <End Role="Personne" EntitySet="Personne" />
+            <End Role="notifications" EntitySet="notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__notificat__#idPo__6B24EA82" Association="Self.FK__notificat__#idPo__6B24EA82">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="notifications" EntitySet="notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Paiement__#idEnt__44FF419A" Association="Self.FK__Paiement__#idEnt__44FF419A">
+            <End Role="Entraineur" EntitySet="Entraineur" />
+            <End Role="Paiement" EntitySet="Paiement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Post__#idChoisez__571DF1D5" Association="Self.FK__Post__#idChoisez__571DF1D5">
+            <End Role="Choix" EntitySet="Choix" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reponse__#idComm__6383C8BA" Association="Self.FK__Reponse__#idComm__6383C8BA">
+            <End Role="Commentaire" EntitySet="Commentaire" />
+            <End Role="Reponse" EntitySet="Reponse" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reponse__#idPeso__6477ECF3" Association="Self.FK__Reponse__#idPeso__6477ECF3">
+            <End Role="Personne" EntitySet="Personne" />
+            <End Role="Reponse" EntitySet="Reponse" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reseauxSo__#idPe__6FE99F9F" Association="Self.FK__reseauxSo__#idPe__6FE99F9F">
+            <End Role="Personne" EntitySet="Personne" />
+            <End Role="reseauxSociaux" EntitySet="reseauxSociaux" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utilisate__#idPe__3C69FB99" Association="Self.FK__Utilisate__#idPe__3C69FB99">
+            <End Role="Personne" EntitySet="Personne" />
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WhatPeopl__#idPe__6754599E" Association="Self.FK__WhatPeopl__#idPe__6754599E">
+            <End Role="Personne" EntitySet="Personne" />
+            <End Role="WhatPeopleSay" EntitySet="WhatPeopleSay" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PFEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Carte">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdresseWeb" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroCarte" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateFin" Type="DateTime" Precision="0" />
+          <Property Name="CVC" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="C_idPersonne" Type="Int32" />
+          <NavigationProperty Name="Personne" Relationship="Self.FK__Carte___idPerson__398D8EEE" FromRole="Carte" ToRole="Personne" />
+        </EntityType>
+        <EntityType Name="Commentaire">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateComnt" Type="DateTime" Precision="3" />
+          <Property Name="TextComnt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="C_idPost" Type="Int32" />
+          <Property Name="C_idPersonne" Type="Int32" />
+          <NavigationProperty Name="Personne" Relationship="Self.FK__Commentai___idPe__60A75C0F" FromRole="Commentaire" ToRole="Personne" />
+          <NavigationProperty Name="Post" Relationship="Self.FK__Commentai___idPo__5FB337D6" FromRole="Commentaire" ToRole="Post" />
+          <NavigationProperty Name="Reponses" Relationship="Self.FK__Reponse___idComm__6383C8BA" FromRole="Commentaire" ToRole="Reponse" />
+        </EntityType>
+        <EntityType Name="Entraineur">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Evaluation" Type="Int32" />
+          <Property Name="Experience" Type="Int32" />
+          <Property Name="DateDub" Type="DateTime" Precision="0" />
+          <Property Name="C_idPersonne" Type="Int32" />
+          <NavigationProperty Name="Personne" Relationship="Self.FK__Entraineu___idPe__3F466844" FromRole="Entraineur" ToRole="Personne" />
+          <NavigationProperty Name="LinkCertifications" Relationship="Self.FK__LinkCerti___idEn__4222D4EF" FromRole="Entraineur" ToRole="LinkCertification" />
+          <NavigationProperty Name="Paiements" Relationship="Self.FK__Paiement___idEnt__44FF419A" FromRole="Entraineur" ToRole="Paiement" />
+          <NavigationProperty Name="EnvoyePars" Relationship="PFEModel.FK__EnvoyePar___idEn__160F4887" FromRole="Entraineur" ToRole="EnvoyePar" />
+          <NavigationProperty Name="Choixes" Relationship="PFEModel.FK__Choix___idEntrai__5070F446" FromRole="Entraineur" ToRole="Choix" />
+        </EntityType>
+        <EntityType Name="LinkCertification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TextCRF" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="C_idEntraineur" Type="Int32" />
+          <NavigationProperty Name="Entraineur" Relationship="Self.FK__LinkCerti___idEn__4222D4EF" FromRole="LinkCertification" ToRole="Entraineur" />
+        </EntityType>
+        <EntityType Name="LinkPost">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TextLinkPost" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="C_idPost" Type="Int32" />
+          <NavigationProperty Name="Post" Relationship="Self.FK__LinkPost___idPos__59FA5E80" FromRole="LinkPost" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="MessageEnv">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateEnv" Type="DateTime" Precision="3" />
+          <Property Name="TextMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Lnik" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EnvoyePars" Relationship="PFEModel.FK__EnvoyePar___idMe__17F790F9" FromRole="MessageEnv" ToRole="EnvoyePar" />
+        </EntityType>
+        <EntityType Name="notification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_idPersonne" Type="Int32" />
+          <Property Name="C_idPost" Type="Int32" />
+          <Property Name="Vue" Type="Boolean" />
+          <Property Name="typeNtif" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Personne" Relationship="Self.FK__notificat___idPe__6A30C649" FromRole="notifications" ToRole="Personne" />
+          <NavigationProperty Name="Post" Relationship="Self.FK__notificat___idPo__6B24EA82" FromRole="notifications" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="Paiement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Montant" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Datep" Type="DateTime" Precision="3" />
+          <Property Name="C_idEntraineur" Type="Int32" />
+          <NavigationProperty Name="Entraineur" Relationship="Self.FK__Paiement___idEnt__44FF419A" FromRole="Paiement" ToRole="Entraineur" />
+        </EntityType>
+        <EntityType Name="Personne">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Sexe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateNc" Type="DateTime" Precision="0" />
+          <Property Name="Telephone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MotsdePass" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Photoprofile" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ValidationChomp" Type="Boolean" />
+          <Property Name="TextValidation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Argent" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Cartes" Relationship="Self.FK__Carte___idPerson__398D8EEE" FromRole="Personne" ToRole="Carte" />
+          <NavigationProperty Name="Commentaires" Relationship="Self.FK__Commentai___idPe__60A75C0F" FromRole="Personne" ToRole="Commentaire" />
+          <NavigationProperty Name="Entraineurs" Relationship="Self.FK__Entraineu___idPe__3F466844" FromRole="Personne" ToRole="Entraineur" />
+          <NavigationProperty Name="notifications" Relationship="Self.FK__notificat___idPe__6A30C649" FromRole="Personne" ToRole="notifications" />
+          <NavigationProperty Name="Reponses" Relationship="Self.FK__Reponse___idPeso__6477ECF3" FromRole="Personne" ToRole="Reponse" />
+          <NavigationProperty Name="Utilisateurs" Relationship="Self.FK__Utilisate___idPe__3C69FB99" FromRole="Personne" ToRole="Utilisateur" />
+          <NavigationProperty Name="WhatPeopleSays" Relationship="Self.FK__WhatPeopl___idPe__6754599E" FromRole="Personne" ToRole="WhatPeopleSay" />
+          <NavigationProperty Name="reseauxSociauxes" Relationship="PFEModel.FK__reseauxSo___idPe__6FE99F9F" FromRole="Personne" ToRole="reseauxSociaux" />
+          <NavigationProperty Name="Evaluations" Relationship="PFEModel.FK__Evaluatio___idPe__1DB06A4F" FromRole="Personne" ToRole="Evaluation" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DatePost" Type="DateTime" Precision="3" />
+          <Property Name="Titer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Subjects" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TextPost" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="C_idChoisez" Type="Int32" />
+          <NavigationProperty Name="Commentaires" Relationship="Self.FK__Commentai___idPo__5FB337D6" FromRole="Post" ToRole="Commentaire" />
+          <NavigationProperty Name="LinkPosts" Relationship="Self.FK__LinkPost___idPos__59FA5E80" FromRole="Post" ToRole="LinkPost" />
+          <NavigationProperty Name="notifications" Relationship="Self.FK__notificat___idPo__6B24EA82" FromRole="Post" ToRole="notifications" />
+          <NavigationProperty Name="Evaluations" Relationship="PFEModel.FK__Evaluatio___idPo__1CBC4616" FromRole="Post" ToRole="Evaluation" />
+          <NavigationProperty Name="Choix" Relationship="PFEModel.FK__Post___idChoisez__571DF1D5" FromRole="Post" ToRole="Choix" />
+        </EntityType>
+        <EntityType Name="Reponse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateRpnd" Type="DateTime" Precision="3" />
+          <Property Name="TextRpnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="C_idCommentaire" Type="Int32" />
+          <Property Name="C_idPesonne" Type="Int32" />
+          <NavigationProperty Name="Commentaire" Relationship="Self.FK__Reponse___idComm__6383C8BA" FromRole="Reponse" ToRole="Commentaire" />
+          <NavigationProperty Name="Personne" Relationship="Self.FK__Reponse___idPeso__6477ECF3" FromRole="Reponse" ToRole="Personne" />
+        </EntityType>
+        <EntityType Name="Sport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Choixes" Relationship="PFEModel.FK__Choix___idSport__5165187F" FromRole="Sport" ToRole="Choix" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_idPersonne" Type="Int32" />
+          <NavigationProperty Name="Personne" Relationship="Self.FK__Utilisate___idPe__3C69FB99" FromRole="Utilisateur" ToRole="Personne" />
+          <NavigationProperty Name="Abonnements" Relationship="PFEModel.FK__Abonnemen___idUt__0A9D95DB" FromRole="Utilisateur" ToRole="Abonnement" />
+          <NavigationProperty Name="EnvoyePars" Relationship="PFEModel.FK__EnvoyePar___idUt__17036CC0" FromRole="Utilisateur" ToRole="EnvoyePar" />
+        </EntityType>
+        <EntityType Name="WhatPeopleSay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TextSay" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="C_idPesonne" Type="Int32" />
+          <NavigationProperty Name="Personne" Relationship="Self.FK__WhatPeopl___idPe__6754599E" FromRole="WhatPeopleSay" ToRole="Personne" />
+          <Property Name="show" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK__Carte___idPerson__398D8EEE">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="Carte" Type="Self.Carte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Carte">
+              <PropertyRef Name="C_idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commentai___idPe__60A75C0F">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="Commentaire" Type="Self.Commentaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Commentaire">
+              <PropertyRef Name="C_idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commentai___idPo__5FB337D6">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Commentaire" Type="Self.Commentaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Commentaire">
+              <PropertyRef Name="C_idPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reponse___idComm__6383C8BA">
+          <End Role="Commentaire" Type="Self.Commentaire" Multiplicity="0..1" />
+          <End Role="Reponse" Type="Self.Reponse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commentaire">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reponse">
+              <PropertyRef Name="C_idCommentaire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Entraineu___idPe__3F466844">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Entraineur">
+              <PropertyRef Name="C_idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LinkCerti___idEn__4222D4EF">
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="0..1" />
+          <End Role="LinkCertification" Type="Self.LinkCertification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entraineur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LinkCertification">
+              <PropertyRef Name="C_idEntraineur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Paiement___idEnt__44FF419A">
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="0..1" />
+          <End Role="Paiement" Type="Self.Paiement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entraineur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Paiement">
+              <PropertyRef Name="C_idEntraineur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LinkPost___idPos__59FA5E80">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="LinkPost" Type="Self.LinkPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LinkPost">
+              <PropertyRef Name="C_idPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__notificat___idPe__6A30C649">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="notifications" Type="Self.notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="notifications">
+              <PropertyRef Name="C_idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__notificat___idPo__6B24EA82">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="notifications" Type="Self.notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="notifications">
+              <PropertyRef Name="C_idPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reponse___idPeso__6477ECF3">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="Reponse" Type="Self.Reponse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reponse">
+              <PropertyRef Name="C_idPesonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utilisate___idPe__3C69FB99">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="C_idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WhatPeopl___idPe__6754599E">
+          <End Role="Personne" Type="Self.Personne" Multiplicity="0..1" />
+          <End Role="WhatPeopleSay" Type="Self.WhatPeopleSay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="WhatPeopleSay">
+              <PropertyRef Name="C_idPesonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PFEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cartes" EntityType="Self.Carte" />
+          <EntitySet Name="Commentaires" EntityType="Self.Commentaire" />
+          <EntitySet Name="Entraineurs" EntityType="Self.Entraineur" />
+          <EntitySet Name="LinkCertifications" EntityType="Self.LinkCertification" />
+          <EntitySet Name="LinkPosts" EntityType="Self.LinkPost" />
+          <EntitySet Name="MessageEnvs" EntityType="Self.MessageEnv" />
+          <EntitySet Name="notifications" EntityType="Self.notification" />
+          <EntitySet Name="Paiements" EntityType="Self.Paiement" />
+          <EntitySet Name="Personnes" EntityType="Self.Personne" />
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <EntitySet Name="Reponses" EntityType="Self.Reponse" />
+          <EntitySet Name="Sports" EntityType="Self.Sport" />
+          <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateur" />
+          <EntitySet Name="WhatPeopleSays" EntityType="Self.WhatPeopleSay" />
+          <AssociationSet Name="FK__Carte___idPerson__398D8EEE" Association="Self.FK__Carte___idPerson__398D8EEE">
+            <End Role="Personne" EntitySet="Personnes" />
+            <End Role="Carte" EntitySet="Cartes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commentai___idPe__60A75C0F" Association="Self.FK__Commentai___idPe__60A75C0F">
+            <End Role="Personne" EntitySet="Personnes" />
+            <End Role="Commentaire" EntitySet="Commentaires" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commentai___idPo__5FB337D6" Association="Self.FK__Commentai___idPo__5FB337D6">
+            <End Role="Post" EntitySet="Posts" />
+            <End Role="Commentaire" EntitySet="Commentaires" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reponse___idComm__6383C8BA" Association="Self.FK__Reponse___idComm__6383C8BA">
+            <End Role="Commentaire" EntitySet="Commentaires" />
+            <End Role="Reponse" EntitySet="Reponses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Entraineu___idPe__3F466844" Association="Self.FK__Entraineu___idPe__3F466844">
+            <End Role="Personne" EntitySet="Personnes" />
+            <End Role="Entraineur" EntitySet="Entraineurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LinkCerti___idEn__4222D4EF" Association="Self.FK__LinkCerti___idEn__4222D4EF">
+            <End Role="Entraineur" EntitySet="Entraineurs" />
+            <End Role="LinkCertification" EntitySet="LinkCertifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Paiement___idEnt__44FF419A" Association="Self.FK__Paiement___idEnt__44FF419A">
+            <End Role="Entraineur" EntitySet="Entraineurs" />
+            <End Role="Paiement" EntitySet="Paiements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LinkPost___idPos__59FA5E80" Association="Self.FK__LinkPost___idPos__59FA5E80">
+            <End Role="Post" EntitySet="Posts" />
+            <End Role="LinkPost" EntitySet="LinkPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__notificat___idPe__6A30C649" Association="Self.FK__notificat___idPe__6A30C649">
+            <End Role="Personne" EntitySet="Personnes" />
+            <End Role="notifications" EntitySet="notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__notificat___idPo__6B24EA82" Association="Self.FK__notificat___idPo__6B24EA82">
+            <End Role="Post" EntitySet="Posts" />
+            <End Role="notifications" EntitySet="notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reponse___idPeso__6477ECF3" Association="Self.FK__Reponse___idPeso__6477ECF3">
+            <End Role="Personne" EntitySet="Personnes" />
+            <End Role="Reponse" EntitySet="Reponses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utilisate___idPe__3C69FB99" Association="Self.FK__Utilisate___idPe__3C69FB99">
+            <End Role="Personne" EntitySet="Personnes" />
+            <End Role="Utilisateur" EntitySet="Utilisateurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WhatPeopl___idPe__6754599E" Association="Self.FK__WhatPeopl___idPe__6754599E">
+            <End Role="Personne" EntitySet="Personnes" />
+            <End Role="WhatPeopleSay" EntitySet="WhatPeopleSays" />
+          </AssociationSet>
+          <EntitySet Name="reseauxSociauxes" EntityType="PFEModel.reseauxSociaux" />
+          <AssociationSet Name="FK__reseauxSo___idPe__6FE99F9F" Association="PFEModel.FK__reseauxSo___idPe__6FE99F9F">
+            <End Role="Personne" EntitySet="Personnes" />
+            <End Role="reseauxSociaux" EntitySet="reseauxSociauxes" />
+          </AssociationSet>
+          <EntitySet Name="Abonnements" EntityType="PFEModel.Abonnement" />
+          <AssociationSet Name="FK__Abonnemen___idUt__0A9D95DB" Association="PFEModel.FK__Abonnemen___idUt__0A9D95DB">
+            <End Role="Utilisateur" EntitySet="Utilisateurs" />
+            <End Role="Abonnement" EntitySet="Abonnements" />
+          </AssociationSet>
+          <EntitySet Name="EnvoyePars" EntityType="PFEModel.EnvoyePar" />
+          <AssociationSet Name="FK__EnvoyePar___idEn__160F4887" Association="PFEModel.FK__EnvoyePar___idEn__160F4887">
+            <End Role="Entraineur" EntitySet="Entraineurs" />
+            <End Role="EnvoyePar" EntitySet="EnvoyePars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EnvoyePar___idMe__17F790F9" Association="PFEModel.FK__EnvoyePar___idMe__17F790F9">
+            <End Role="MessageEnv" EntitySet="MessageEnvs" />
+            <End Role="EnvoyePar" EntitySet="EnvoyePars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EnvoyePar___idUt__17036CC0" Association="PFEModel.FK__EnvoyePar___idUt__17036CC0">
+            <End Role="Utilisateur" EntitySet="Utilisateurs" />
+            <End Role="EnvoyePar" EntitySet="EnvoyePars" />
+          </AssociationSet>
+          <EntitySet Name="Evaluations" EntityType="PFEModel.Evaluation" />
+          <AssociationSet Name="FK__Evaluatio___idPe__1DB06A4F" Association="PFEModel.FK__Evaluatio___idPe__1DB06A4F">
+            <End Role="Personne" EntitySet="Personnes" />
+            <End Role="Evaluation" EntitySet="Evaluations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Evaluatio___idPo__1CBC4616" Association="PFEModel.FK__Evaluatio___idPo__1CBC4616">
+            <End Role="Post" EntitySet="Posts" />
+            <End Role="Evaluation" EntitySet="Evaluations" />
+          </AssociationSet>
+          <EntitySet Name="Choixes" EntityType="PFEModel.Choix" />
+          <AssociationSet Name="FK__Abonnemen___idCh__2180FB33" Association="PFEModel.FK__Abonnemen___idCh__2180FB33">
+            <End Role="Choix" EntitySet="Choixes" />
+            <End Role="Abonnement" EntitySet="Abonnements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Choix___idEntrai__5070F446" Association="PFEModel.FK__Choix___idEntrai__5070F446">
+            <End Role="Entraineur" EntitySet="Entraineurs" />
+            <End Role="Choix" EntitySet="Choixes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Choix___idSport__5165187F" Association="PFEModel.FK__Choix___idSport__5165187F">
+            <End Role="Sport" EntitySet="Sports" />
+            <End Role="Choix" EntitySet="Choixes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Post___idChoisez__571DF1D5" Association="PFEModel.FK__Post___idChoisez__571DF1D5">
+            <End Role="Choix" EntitySet="Choixes" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <EntitySet Name="AdminBackends" EntityType="PFEModel.AdminBackend" />
+        </EntityContainer>
+        <EntityType Name="reseauxSociaux">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lnik" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nameRs" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="C_idPersonne" Type="Int32" />
+          <NavigationProperty Name="Personne" Relationship="PFEModel.FK__reseauxSo___idPe__6FE99F9F" FromRole="reseauxSociaux" ToRole="Personne" />
+        </EntityType>
+        <Association Name="FK__reseauxSo___idPe__6FE99F9F">
+          <End Type="PFEModel.Personne" Role="Personne" Multiplicity="0..1" />
+          <End Type="PFEModel.reseauxSociaux" Role="reseauxSociaux" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reseauxSociaux">
+              <PropertyRef Name="C_idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Abonnement">
+          <Key>
+            <PropertyRef Name="C_idChoisez" />
+            <PropertyRef Name="C_idUtilisateur" />
+          </Key>
+          <Property Name="C_idChoisez" Type="Int32" Nullable="false" />
+          <Property Name="C_idUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="DateDub" Type="DateTime" Precision="0" />
+          <Property Name="DateFin" Type="DateTime" Precision="0" />
+          <Property Name="Peroide" Type="Int32" />
+          <Property Name="autoReview" Type="Boolean" />
+          <NavigationProperty Name="Utilisateur" Relationship="PFEModel.FK__Abonnemen___idUt__0A9D95DB" FromRole="Abonnement" ToRole="Utilisateur" />
+          <NavigationProperty Name="Choix" Relationship="PFEModel.FK__Abonnemen___idCh__2180FB33" FromRole="Abonnement" ToRole="Choix" />
+        </EntityType>
+        <Association Name="FK__Abonnemen___idUt__0A9D95DB">
+          <End Type="PFEModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
+          <End Type="PFEModel.Abonnement" Role="Abonnement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Abonnement">
+              <PropertyRef Name="C_idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EnvoyePar">
+          <Key>
+            <PropertyRef Name="C_idEntraineur" />
+            <PropertyRef Name="C_idUtilisateur" />
+            <PropertyRef Name="C_idMessage" />
+          </Key>
+          <Property Name="C_idEntraineur" Type="Int32" Nullable="false" />
+          <Property Name="C_idUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="C_idMessage" Type="Int32" Nullable="false" />
+          <Property Name="Deriction" Type="Boolean" />
+          <NavigationProperty Name="Entraineur" Relationship="PFEModel.FK__EnvoyePar___idEn__160F4887" FromRole="EnvoyePar" ToRole="Entraineur" />
+          <NavigationProperty Name="MessageEnv" Relationship="PFEModel.FK__EnvoyePar___idMe__17F790F9" FromRole="EnvoyePar" ToRole="MessageEnv" />
+          <NavigationProperty Name="Utilisateur" Relationship="PFEModel.FK__EnvoyePar___idUt__17036CC0" FromRole="EnvoyePar" ToRole="Utilisateur" />
+        </EntityType>
+        <Association Name="FK__EnvoyePar___idEn__160F4887">
+          <End Type="PFEModel.Entraineur" Role="Entraineur" Multiplicity="1" />
+          <End Type="PFEModel.EnvoyePar" Role="EnvoyePar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entraineur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EnvoyePar">
+              <PropertyRef Name="C_idEntraineur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EnvoyePar___idMe__17F790F9">
+          <End Type="PFEModel.MessageEnv" Role="MessageEnv" Multiplicity="1" />
+          <End Type="PFEModel.EnvoyePar" Role="EnvoyePar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageEnv">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EnvoyePar">
+              <PropertyRef Name="C_idMessage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EnvoyePar___idUt__17036CC0">
+          <End Type="PFEModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
+          <End Type="PFEModel.EnvoyePar" Role="EnvoyePar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EnvoyePar">
+              <PropertyRef Name="C_idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Evaluation">
+          <Key>
+            <PropertyRef Name="C_idPost" />
+            <PropertyRef Name="C_idPersonne" />
+          </Key>
+          <Property Name="C_idPost" Type="Int32" Nullable="false" />
+          <Property Name="C_idPersonne" Type="Int32" Nullable="false" />
+          <Property Name="Evaluation1" Type="Boolean" />
+          <NavigationProperty Name="Personne" Relationship="PFEModel.FK__Evaluatio___idPe__1DB06A4F" FromRole="Evaluation" ToRole="Personne" />
+          <NavigationProperty Name="Post" Relationship="PFEModel.FK__Evaluatio___idPo__1CBC4616" FromRole="Evaluation" ToRole="Post" />
+        </EntityType>
+        <Association Name="FK__Evaluatio___idPe__1DB06A4F">
+          <End Type="PFEModel.Personne" Role="Personne" Multiplicity="1" />
+          <End Type="PFEModel.Evaluation" Role="Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personne">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="C_idPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Evaluatio___idPo__1CBC4616">
+          <End Type="PFEModel.Post" Role="Post" Multiplicity="1" />
+          <End Type="PFEModel.Evaluation" Role="Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="C_idPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Choix">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_idEntraineur" Type="Int32" />
+          <Property Name="C_idSport" Type="Int32" />
+          <Property Name="Category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AbonnemetPrix" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="textPub" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="img" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Abonnements" Relationship="PFEModel.FK__Abonnemen___idCh__2180FB33" FromRole="Choix" ToRole="Abonnement" />
+          <NavigationProperty Name="Entraineur" Relationship="PFEModel.FK__Choix___idEntrai__5070F446" FromRole="Choix" ToRole="Entraineur" />
+          <NavigationProperty Name="Sport" Relationship="PFEModel.FK__Choix___idSport__5165187F" FromRole="Choix" ToRole="Sport" />
+          <NavigationProperty Name="Posts" Relationship="PFEModel.FK__Post___idChoisez__571DF1D5" FromRole="Choix" ToRole="Post" />
+          <Property Name="TypeEntrainment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Abonnemen___idCh__2180FB33">
+          <End Type="PFEModel.Choix" Role="Choix" Multiplicity="1" />
+          <End Type="PFEModel.Abonnement" Role="Abonnement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Choix">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Abonnement">
+              <PropertyRef Name="C_idChoisez" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Choix___idEntrai__5070F446">
+          <End Type="PFEModel.Entraineur" Role="Entraineur" Multiplicity="0..1" />
+          <End Type="PFEModel.Choix" Role="Choix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entraineur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Choix">
+              <PropertyRef Name="C_idEntraineur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Choix___idSport__5165187F">
+          <End Type="PFEModel.Sport" Role="Sport" Multiplicity="0..1" />
+          <End Type="PFEModel.Choix" Role="Choix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Choix">
+              <PropertyRef Name="C_idSport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Post___idChoisez__571DF1D5">
+          <End Type="PFEModel.Choix" Role="Choix" Multiplicity="0..1" />
+          <End Type="PFEModel.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Choix">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="C_idChoisez" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AdminBackend">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="gestionDesAdmin" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PFEModelStoreContainer" CdmEntityContainer="PFEEntities">
+          <EntitySetMapping Name="Cartes">
+            <EntityTypeMapping TypeName="PFEModel.Carte">
+              <MappingFragment StoreEntitySet="Carte">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AdresseWeb" ColumnName="AdresseWeb" />
+                <ScalarProperty Name="NumeroCarte" ColumnName="NumeroCarte" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="CVC" ColumnName="CVC" />
+                <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commentaires">
+            <EntityTypeMapping TypeName="PFEModel.Commentaire">
+              <MappingFragment StoreEntitySet="Commentaire">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DateComnt" ColumnName="DateComnt" />
+                <ScalarProperty Name="TextComnt" ColumnName="TextComnt" />
+                <ScalarProperty Name="C_idPost" ColumnName="#idPost" />
+                <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entraineurs">
+            <EntityTypeMapping TypeName="PFEModel.Entraineur">
+              <MappingFragment StoreEntitySet="Entraineur">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Evaluation" ColumnName="Evaluation" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="DateDub" ColumnName="DateDub" />
+                <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinkCertifications">
+            <EntityTypeMapping TypeName="PFEModel.LinkCertification">
+              <MappingFragment StoreEntitySet="LinkCertification">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="TextCRF" ColumnName="TextCRF" />
+                <ScalarProperty Name="C_idEntraineur" ColumnName="#idEntraineur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinkPosts">
+            <EntityTypeMapping TypeName="PFEModel.LinkPost">
+              <MappingFragment StoreEntitySet="LinkPost">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="TextLinkPost" ColumnName="TextLinkPost" />
+                <ScalarProperty Name="C_idPost" ColumnName="#idPost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageEnvs">
+            <EntityTypeMapping TypeName="PFEModel.MessageEnv">
+              <MappingFragment StoreEntitySet="MessageEnv">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DateEnv" ColumnName="DateEnv" />
+                <ScalarProperty Name="TextMessage" ColumnName="TextMessage" />
+                <ScalarProperty Name="Lnik" ColumnName="Lnik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notifications">
+            <EntityTypeMapping TypeName="PFEModel.notification">
+              <MappingFragment StoreEntitySet="notifications">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+                <ScalarProperty Name="C_idPost" ColumnName="#idPost" />
+                <ScalarProperty Name="Vue" ColumnName="Vue" />
+                <ScalarProperty Name="typeNtif" ColumnName="typeNtif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paiements">
+            <EntityTypeMapping TypeName="PFEModel.Paiement">
+              <MappingFragment StoreEntitySet="Paiement">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Montant" ColumnName="Montant" />
+                <ScalarProperty Name="Datep" ColumnName="Datep" />
+                <ScalarProperty Name="C_idEntraineur" ColumnName="#idEntraineur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personnes">
+            <EntityTypeMapping TypeName="PFEModel.Personne">
+              <MappingFragment StoreEntitySet="Personne">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="DateNc" ColumnName="DateNc" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="MotsdePass" ColumnName="MotsdePass" />
+                <ScalarProperty Name="Photoprofile" ColumnName="Photoprofile" />
+                <ScalarProperty Name="ValidationChomp" ColumnName="ValidationChomp" />
+                <ScalarProperty Name="TextValidation" ColumnName="TextValidation" />
+                <ScalarProperty Name="Argent" ColumnName="Argent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="PFEModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DatePost" ColumnName="DatePost" />
+                <ScalarProperty Name="Titer" ColumnName="Titer" />
+                <ScalarProperty Name="Subjects" ColumnName="Subjects" />
+                <ScalarProperty Name="TextPost" ColumnName="TextPost" />
+                <ScalarProperty Name="C_idChoisez" ColumnName="#idChoisez" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reponses">
+            <EntityTypeMapping TypeName="PFEModel.Reponse">
+              <MappingFragment StoreEntitySet="Reponse">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dateRpnd" ColumnName="dateRpnd" />
+                <ScalarProperty Name="TextRpnd" ColumnName="TextRpnd" />
+                <ScalarProperty Name="C_idCommentaire" ColumnName="#idCommentaire" />
+                <ScalarProperty Name="C_idPesonne" ColumnName="#idPesonne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sports">
+            <EntityTypeMapping TypeName="PFEModel.Sport">
+              <MappingFragment StoreEntitySet="Sport">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateurs">
+            <EntityTypeMapping TypeName="PFEModel.Utilisateur">
+              <MappingFragment StoreEntitySet="Utilisateur">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WhatPeopleSays">
+            <EntityTypeMapping TypeName="PFEModel.WhatPeopleSay">
+              <MappingFragment StoreEntitySet="WhatPeopleSay">
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TextSay" ColumnName="TextSay" />
+                <ScalarProperty Name="C_idPesonne" ColumnName="#idPesonne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reseauxSociauxes">
+            <EntityTypeMapping TypeName="PFEModel.reseauxSociaux">
+              <MappingFragment StoreEntitySet="reseauxSociaux">
+                <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+                <ScalarProperty Name="nameRs" ColumnName="nameRs" />
+                <ScalarProperty Name="Lnik" ColumnName="Lnik" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Abonnements">
+            <EntityTypeMapping TypeName="PFEModel.Abonnement">
+              <MappingFragment StoreEntitySet="Abonnement">
+                <ScalarProperty Name="autoReview" ColumnName="autoReview" />
+                <ScalarProperty Name="Peroide" ColumnName="Peroide" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="DateDub" ColumnName="DateDub" />
+                <ScalarProperty Name="C_idUtilisateur" ColumnName="#idUtilisateur" />
+                <ScalarProperty Name="C_idChoisez" ColumnName="#idChoisez" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EnvoyePars">
+            <EntityTypeMapping TypeName="PFEModel.EnvoyePar">
+              <MappingFragment StoreEntitySet="EnvoyePar">
+                <ScalarProperty Name="Deriction" ColumnName="Deriction" />
+                <ScalarProperty Name="C_idMessage" ColumnName="#idMessage" />
+                <ScalarProperty Name="C_idUtilisateur" ColumnName="#idUtilisateur" />
+                <ScalarProperty Name="C_idEntraineur" ColumnName="#idEntraineur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evaluations">
+            <EntityTypeMapping TypeName="PFEModel.Evaluation">
+              <MappingFragment StoreEntitySet="Evaluation">
+                <ScalarProperty Name="Evaluation1" ColumnName="Evaluation" />
+                <ScalarProperty Name="C_idPersonne" ColumnName="#idPersonne" />
+                <ScalarProperty Name="C_idPost" ColumnName="#idPost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Choixes">
+            <EntityTypeMapping TypeName="PFEModel.Choix">
+              <MappingFragment StoreEntitySet="Choix">
+                <ScalarProperty Name="TypeEntrainment" ColumnName="TypeEntrainment" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="textPub" ColumnName="textPub" />
+                <ScalarProperty Name="AbonnemetPrix" ColumnName="AbonnemetPrix" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="C_idSport" ColumnName="#idSport" />
+                <ScalarProperty Name="C_idEntraineur" ColumnName="#idEntraineur" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminBackends">
+            <EntityTypeMapping TypeName="PFEModel.AdminBackend">
+              <MappingFragment StoreEntitySet="AdminBackend">
+                <ScalarProperty Name="gestionDesAdmin" ColumnName="gestionDesAdmin" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
